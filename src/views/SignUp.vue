@@ -4,7 +4,7 @@
         <title> Sign Up </title>
     
     </head>
-    <body>
+    
         <center> <h1> Create your account: </h1> </center>
         <form>
             <div>
@@ -25,6 +25,6 @@
             
         
         </form>
-    </body>
+
 </html>
 </template>
