@@ -4,9 +4,10 @@
 
 <template>
   <nav>
-    <router-link to="/signup">SignUp</router-link>
+    <router-link to="/">SignUp</router-link>
     <router-link to="/firstpage">FirstPage</router-link>
   </nav>
+  <router-view></router-view>
 </template>
 
 <style scoped>

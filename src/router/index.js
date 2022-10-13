@@ -4,15 +4,15 @@ import FirstPage from '../views/FirstPage.vue'
 
 const routes = [
     {
-        path: '/signup',
+        path: '/',
         name: 'signup',
         component: SignUp
     },
     {
         path: '/firstpage',
         name: 'firstpage',
-        component: FirstPage
-    },
+        component: FirstPage,
+    }
 ]
 
 const router = createRouter({
