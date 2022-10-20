@@ -1,5 +1,6 @@
 <template>
     <main>
+
         <h1>EVENTASTIC</h1>
         
         <p>Login to your account:</p>
@@ -11,13 +12,10 @@
             <input type="password" placeholder="Password" name="password" required>        
         </div>
 
-        <button>LogIn</button>
+        <button @click="$router.push('/')" >LogIn</button>
 
         <p>If you don't have an account, create one:</p>
 
-        <button @click="$router.push('/')">SignUp</button>
-        
-
-
+        <button @click="$router.push('/signup')">SignUp</button>
     </main>
 </template>
