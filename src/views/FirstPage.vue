@@ -4,15 +4,19 @@
         
         <p>Login to your account:</p>
 
-        <div>
-            <label for="email">E-Mail </label>
-            <input type="text" id="email" name="email">
+        <div>          
+            <input type="text" placeholder="E-mail" name="username" required>
         </div>
-        <div>
-            <label for="password">Password </label>
-            <input type="text" id="password" name="password">
+        <div>         
+            <input type="password" placeholder="Password" name="password" required>        
         </div>
 
+        <button>LogIn</button>
+
+        <p>If you don't have an account, create one:</p>
+
+        <button @click="$router.push('/')">SignUp</button>
+        
 
 
     </main>
