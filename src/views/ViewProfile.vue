@@ -26,11 +26,10 @@
     </h3>
 
     <div class="imatges22">
-        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-
+        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
     </div>
     <div>
         <button @click="$router.push('/eventslist')" >Manage my events</button>
@@ -63,6 +62,9 @@
     .separacioImatges{
         display: flex;
         justify-content: space-around;
+    }
+    div.imatges22{
+        margin: 20px;
     }
     
 
