@@ -7,13 +7,47 @@
 
     <h2>Your profile</h2>
 
-    <body> 
+    <div class="separacioImatges"> 
 
-        <img  src="https://cdn-icons-png.flaticon.com/512/880/880594.png" width="50" height="50">
-        <img  src="https://cdn0.iconfinder.com/data/icons/glyphpack/63/statistics-512.png" width="50" height="50">
-        <img  src="https://cdn-icons-png.flaticon.com/512/32/32223.png" width="50" height="50">
+        <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
+        <img class="pequeña" src="https://cdn0.iconfinder.com/data/icons/glyphpack/63/statistics-512.png">
+        <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/32/32223.png">
 
-    </body>
+    </div>
 
+    <h3>
+        Recent events
+    </h3>
+
+    <div class="imatges22">
+        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
+        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
+        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
+        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
+
+    </div>
 
 </template>
+
+<style>
+    img.pequeña{
+    width: 50px;
+    height: 50px;
+    }
+    img.mediana{
+    width: 100px;
+    height: 100px;
+    }
+    img.grande{
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    }
+    .separacioImatges{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+
+
+</style>
