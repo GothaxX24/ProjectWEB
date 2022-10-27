@@ -8,11 +8,17 @@
     <h2>Your profile</h2>
 
     <div class="separacioImatges"> 
+        <RouterLink to = "/friends">
+            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
+        </RouterLink>
 
-        <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        <img class="pequeña" src="https://cdn0.iconfinder.com/data/icons/glyphpack/63/statistics-512.png">
-        <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/32/32223.png">
+        <RouterLink to="/statistics">
+            <img class="pequeña" src="https://cdn0.iconfinder.com/data/icons/glyphpack/63/statistics-512.png">
+        </RouterLink>
 
+        <RouterLink to="/eventhistory">
+            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/32/32223.png">
+        </RouterLink> 
     </div>
 
     <h3>
@@ -26,7 +32,18 @@
         <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
 
     </div>
+    <div>
+        <button @click="$router.push('/eventslist')" >Manage my events</button>
+    </div>
+    <div>  
+        <button @click="$router.push('/firstpage')" >SignOut</button>
+    </div>
+    <div>
+        <button @click="$router.push('/firstpage')" type="button">Delete account</button>
+    </div>
+   
 
+ 
 </template>
 
 <style>
