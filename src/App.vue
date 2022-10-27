@@ -9,6 +9,7 @@
     <router-link to="/profile">Profile</router-link>
     <router-link to="/viewprofile">ViewProfile</router-link>
     <router-link to = "/CreateEvent">Create Event</router-link>
+    <router-link to = "/Friends">Friends</router-link>
   </nav>
   <router-view></router-view>
 </template>

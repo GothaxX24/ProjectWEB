@@ -9,7 +9,8 @@
      
             
             
-        <div class ="body2">     
+        <div class ="body2"> 
+                  
                 <div >
                 <label>Username : </label>   
                 <input type="text" placeholder="Enter Username" name="username" required>  
@@ -38,17 +39,16 @@
 </html>
 </template>
 <style>
-.header2{
-    background-color: turquoise ;
+.header2{ 
+
     font-family: 'Courier New', Courier, monospace;
     font-size:medium    ;   
   }
 .body2{
-
-    background-color: turquoise;
+    
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
 </style>
 
