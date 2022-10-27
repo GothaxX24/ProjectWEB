@@ -25,7 +25,7 @@
         Recent events
     </h3>
 
-    <div class="imatges22">
+    <div>
         <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
         <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
         <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
@@ -58,15 +58,11 @@
     object-fit: cover;
     width: 200px;
     height: 200px;
+    margin: 5px;
     }
     .separacioImatges{
         display: flex;
         justify-content: space-around;
     }
-    div.imatges22{
-        margin: 20px;
-    }
-    
-
 
 </style>
