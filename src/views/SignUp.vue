@@ -40,13 +40,12 @@
 </template>
 <style>
 .header2{ 
-    background-color: turquoise ;
+
     font-family: 'Courier New', Courier, monospace;
     font-size:medium    ;   
   }
 .body2{
     
-    background-color: turquoise;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
