@@ -9,75 +9,75 @@
     <div> 
               
             <div class = body_chats1>
-            <label><strong>Your friends: </strong></label>         
+                <label><strong>Your friends: </strong></label>         
             </div>
 
-            <div class = body_chats2>
+            <div class = body_chats1>
                 <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
                 <label>User 1</label> 
                 <div class = body_chats10>
-                    <label>Send message</label>
+                    <button class="Chats-button"><strong>Send message</strong></button>
                 </div>
                 <div class = body_chats11>
-                    <label><bold>You have 1 message!</bold></label>
+                    <label><strong>You have 1 message!</strong></label>
                 </div>
             </div>
 
     
-            <div class = body_chats3>
+            <div class = body_chats1>
                 <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                <label>User 2</label> 
+                <label>User 2</label>
                 <div class = body_chats10>
-                    <label>Send message</label>
+                    <button class="Chats-button"><strong>Send message</strong></button> 
                 </div>
             </div>
             
-            <div class = body_chats4>
+            <div class = body_chats1>
                 <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
                 <label>User 3</label> 
                 <div class = body_chats10>
-                    <label>Send message</label>
+                <button class="Chats-button"><strong>Send message</strong></button>
                 </div>
             </div>
            
-            <div class = body_chats5>
+            <div class = body_chats1>
                 <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
                 <label>User 4</label> 
                 <div class = body_chats10>
-                    <label>Send message</label>
+                    <button class="Chats-button"><strong>Send message</strong></button>
                 </div>
                 <div class = body_chats11>
-                    <label><bold>You have 1 message!</bold></label>
+                    <label><strong>You have 1 message!</strong></label>
                 </div>
             </div>
 
             <br>
         
-            <div class = body_chats6>
+            <div class = body_chats1>
                 <label><strong>Other suggestions:</strong></label> 
             </div>
            
-            <div class = body_chats7>
+            <div class = body_chats1>
                 <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
                 <label>User 5</label> 
                 <div class = body_chats10>
-                    <label>Send message</label>
+                    <button class="Chats-button"><strong>Send message</strong></button>
                 </div>
             </div>
             
-            <div class = body_chats8>
+            <div class = body_chats1>
                 <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
                 <label>User 6</label>  
                 <div class = body_chats10>
-                    <label>Send message</label>
+                    <button class="Chats-button"><strong>Send message</strong></button>
                 </div>  
             </div>
 
-            <div class = body_chats9>
+            <div class = body_chats1>
                 <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
                 <label>User 7</label>  
                 <div class = body_chats10>
-                    <label>Send message</label>
+                    <button class="Chats-button"><strong>Send message</strong></button>
                 </div>  
             </div>
     </div>      
@@ -87,85 +87,23 @@
 .header_friends{ 
 
 font-family: 'Courier New', Courier, monospace;
-font-size:medium    ;   
+font-size:medium;   
 }
+
 .body_chats1{
 border:3px solid black;
-font-size: "5";
+font-size: "2";
 background-color: turquoise;
 font-family : Arial, Helvetica, sans-serif;
 display: flex;
 flex-direction: row;
 }
-.body_chats2{
-border:3px solid black;
-font-size: "5";
-background-color: turquoise;
-font-family: Arial, Helvetica, sans-serif;
-display: flex;
-flex-direction: row;
-}
-.body_chats3{
-border:3px solid black;
-font-size: "5";
-background-color: turquoise;
-font-family: Arial, Helvetica, sans-serif;
-display: flex;
-flex-direction: row;
-}
-.body_chats4{
-border:3px solid black;
-font-size: "5";
-background-color: turquoise;
-font-family: Arial, Helvetica, sans-serif;
-display: flex;
-flex-direction: row;
-}
-.body_chats5{
-border:3px solid black;
-font-size: "5";
-background-color: turquoise;
-font-family: Arial, Helvetica, sans-serif;
-display: flex;
-flex-direction: row;
-}
-.body_chats6{
-    border:3px solid black;
-    font-size: "5";
-    background-color: turquoise;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: row;
-}
-.body_chats7{
-    border:3px solid black;
-    font-size: "5";
-    background-color: turquoise;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: row;
-}
-.body_chats8{
-    border:3px solid black;
-    font-size: "5";
-    background-color: turquoise;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: row;
-}
-.body_chats9{
-    border:3px solid black;
-    font-size: "5";
-    background-color: turquoise;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: row;
-}
+
 
 .body_chats10{
     
-    font-size: "3";
-    color: white;
+    font-size: "2";
+    color: rgb(255, 255, 255);
     text-shadow: 0 0 3px #010303;
     background-color: turquoise;
     font-family: Arial, Helvetica, sans-serif;
@@ -176,15 +114,14 @@ flex-direction: row;
 }
 
 .body_chats11 {
-
-    border:5px solid rgb(255, 255, 255);
-    font-size: "3";
+    border: 5px solid rgb(255, 255, 255);
+    font-size: "2";
     color: rgb(0, 0, 0);
-   
+
     font-family: Arial, Helvetica, sans-serif;
-    flex-direction: row;
-    text-align: right;
-    padding: 0 50px 0 55px;
+    flex-direction:row;
+    text-align:right;
+    padding: 1 50px 1 60px;
     margin-top: 0px;
 
 }
