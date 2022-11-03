@@ -8,25 +8,41 @@
     <h2>Your profile</h2>
 
     <div class="separacioImatges"> 
+        <RouterLink to = "/friends">
+            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
+        </RouterLink>
 
-        <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        <img class="pequeña" src="https://cdn0.iconfinder.com/data/icons/glyphpack/63/statistics-512.png">
-        <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/32/32223.png">
+        <RouterLink to="/statistics">
+            <img class="pequeña" src="https://cdn0.iconfinder.com/data/icons/glyphpack/63/statistics-512.png">
+        </RouterLink>
 
+        <RouterLink to="/eventhistory">
+            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/32/32223.png">
+        </RouterLink> 
     </div>
 
     <h3>
         Recent events
     </h3>
 
-    <div class="imatges22">
-        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        <img class="grande" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-
+    <div>
+        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
     </div>
+    <div>
+        <button @click="$router.push('/eventslist')" >Manage my events</button>
+    </div>
+    <div>  
+        <button @click="$router.push('/firstpage')" >SignOut</button>
+    </div>
+    <div>
+        <button @click="$router.push('/firstpage')" type="button">Delete account</button>
+    </div>
+   
 
+ 
 </template>
 
 <style>
@@ -42,12 +58,11 @@
     object-fit: cover;
     width: 200px;
     height: 200px;
+    margin: 5px;
     }
     .separacioImatges{
         display: flex;
         justify-content: space-around;
     }
-    
-
 
 </style>
