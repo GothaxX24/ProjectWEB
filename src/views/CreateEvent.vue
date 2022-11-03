@@ -30,7 +30,8 @@
             <div >
                 <label>Location </label> 
                 <input type="Text" placeholder="" name="" required> 
-
+            </div>
+        </div>
 
 
 
