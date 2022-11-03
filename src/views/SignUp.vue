@@ -31,7 +31,7 @@
             </div>
 
             <div class = "signUp-button-block" >
-                <button class="signUp-button"><strong>Sign Up</strong></button>
+                <button @click="$router.push('/')" class="signUp-button"><strong>Sign Up</strong></button>
             </div>
 
 
