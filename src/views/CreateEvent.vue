@@ -31,6 +31,12 @@
                 <label>Location </label> 
                 <input type="Text" placeholder="" name="" required> 
             </div>
+            <div >
+                <label>Main event image</label>
+            </div>
+            <div class="centraimg">
+                <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="100" height="100"/>
+            </div>
         </div>
 
 
@@ -60,5 +66,10 @@
 .separacio{
    margin-left: 40px;
    width: 200px;
+}
+
+.centraimg{
+    display: block;
+    margin: auto;
 }
 </style>
