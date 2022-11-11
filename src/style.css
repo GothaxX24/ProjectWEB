@@ -36,8 +36,7 @@ a:hover {
 body {
   margin: 0;
   background-color: rgb(255, 255, 255);
-  display: flex;
-  place-items: center;
+  
   min-width: 320px;
   min-height: 100vh;
 }
@@ -92,4 +91,22 @@ button:focus-visible {
 
 .circular-image{
   border-radius: 50%;
+}
+
+.general-input{
+  border: 1px;
+  width: 30%;
+  min-width: 300px;
+  font-size: 1rem;
+  max-width: 600px;
+  line-height: 1.5rem;
+  font-weight: 400;
+  font-family: Arial;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  padding: 14px;
+  background-color: var(--background-base,#f0f0f0);
+  box-shadow:0px 0px 0px 1px#050505;
+  
 }

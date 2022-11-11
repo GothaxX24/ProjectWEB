@@ -5,11 +5,11 @@
         
         <p>Login to your account:</p>
 
-        <div>          
-            <input type="text" placeholder="E-mail" name="username" required>
+        <div class="divlag">          
+            <input type="text" class="general-input" placeholder="E-mail" name="username" required>
         </div>
-        <div>         
-            <input type="password" placeholder="Password" name="password" required>        
+        <div class="divlag">         
+            <input class = "general-input" type="password" placeholder="Password" name="password" required>        
         </div>
 
         <button @click="$router.push('/')" >LogIn</button>
@@ -19,3 +19,11 @@
         <button @click="$router.push('/signup')">SignUp</button>
     </main>
 </template>
+
+<style>
+   .divlag {
+    margin-bottom: 30px;
+   }
+
+
+</style>

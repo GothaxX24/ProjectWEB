@@ -1,69 +1,94 @@
 <template>
-            <div class="signUp-title">
-                <h1 class="signUp-title" >Eventastic!</h1>
-            </div>
             
-            <div class="signUp-menu"> 
-                  
-               
-                <label class="signUp-label">What is your username?</label>   
-            
-            
-                <input class="prova" type="text" placeholder="Enter Username" name="username" required>        
-            
+               <div class="general">
+                    <div class="signUp-title">
+                        <h1 class="signUp-title2">EVENTASTIC</h1>
+                        <div class = " signUp-image">
+                            <img class="imageconfig" src="https://user-images.githubusercontent.com/48566979/54383069-a4162000-4667-11e9-9b43-e649269a0bd8.png" >
 
-            
-                <label class="signUp-label">What is your password? </label> 
-            
+                        </div>
+                    </div>
+                    <div class="signUp-menu"> 
+                        
+                        
+                    
+                        <label class="signUp-label">What is your username?</label>   
+                    
+                    
+                        <input class="general-input" type="text" placeholder="Enter Username" name="username" required>        
+                    
 
-        
-                <input class="prova" type="password" placeholder="Enter Password" name="password" required>
-            
-            
-            
-                <label class="signUp-label">Confirm your Password</label>
-            
+                    
+                        <label class="signUp-label">What is your password? </label> 
+                    
 
+                
+                        <input class="general-input" type="password" placeholder="Enter Password" name="password" required>
+                    
+                    
+                    
+                        <label class="signUp-label">Confirm your Password</label>
+                    
+
+                    
+                        <input class="general-input" type="password" placeholder="Confirm Password" name="confirm password" > 
+                            
+
+                    </div>
+                    <div class = "signUp-button-block" >
+                        <button @click="$router.push('/')" class="signUp-button"><strong>Sign Up</strong></button>
+                    </div>
+                </div>
+                    
+                
+                    
+
+                    
+
+                
+          
             
-                <input class="prova" type="password" placeholder="Confirm Password" name="confirm password" > 
-                     
-
-            </div>
-
-            <div class = "signUp-button-block" >
-                <button @click="$router.push('/')" class="signUp-button"><strong>Sign Up</strong></button>
-            </div>
 
 
 </template>
 <style>
+    .imageconfig{
+        width: 100%;
+    }
+    .signUp-image{
+      max-width: 80px;
+
+    }
+    .general {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .signUpBody{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 500px;
+    }
     .signUp-button-block{
-    display: flex;
-    justify-content: center;
+        display: flex;
+        justify-content: center;
     }
     .signUp-title{
-        display:flex;
-        flex-direction: row;
-        justify-content: center;
+        display: flex;
+        align-items: center;
+    
+                
         
+    }
+    .signUp-title2{
+        font-size: clamp(2rem,4vw,60px);
+
     }
 
-    .prova{
-        border: 0px;
-        
-        width:  100%;
-        font-size: 1rem;
-        line-height: 1.5rem;
-        font-weight: 400;
-        font-family: Arial;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        border-radius: 5px;
-        padding: 14px;
-        background-color: var(--background-base,#f0f0f0);
-        box-shadow:0px 0px 0px 1px#050505;
-        
-    }
+   
     .signUp-label{
         font-weight: bold;
         margin-bottom:5px;
@@ -74,9 +99,11 @@
     .signUp-menu{
         display: flex;
         flex-direction: column;
-        width: 100%;
-        align-items:baseline;
-        justify-content:space-between;
+        align-items: baseline;
+        justify-content: center;
+        
+    
+        
 
     }
     .signUp-button{

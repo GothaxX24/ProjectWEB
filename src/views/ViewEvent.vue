@@ -1,6 +1,6 @@
 <template>
 <h1 class="viewProfile-title">"NAME OF THE EVENT"</h1>
-<img class="circular" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="200" height="200"/> 
+<img class="circular-image" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="200" height="200"/> 
 
 <div class="viewProfile-form">
     <div>
@@ -39,11 +39,7 @@
 
 <style>
 
-.circular{
-border-radius: 20%;
-width: 150px;
-height: 150px;
-}
+
 .viewProfile-title{
     font-size: 30px;
 }
@@ -58,18 +54,7 @@ height: 150px;
     align-items: flex-start;
     margin-left: 25px;
 }
-.viewProfile-form-input{
-        border: 0px;
-        font-size: 1rem;
-        line-height: 2rem;
-        font-weight: 400;
-        font-family: Arial;
-        margin-top: 0px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        background-color: var(--background-base,#f0f0f0);
-        box-shadow:0px 0px 0px 1px#050505;
-}
+
 .box {
     width: 300px;
     border: 15px black;
