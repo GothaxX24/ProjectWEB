@@ -5,7 +5,7 @@
     
     <img class="circular-image" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="200" height="200"/> 
 
-    <h2>Your profile</h2>
+    <h2>User1</h2>
 
     <div class="separacioImatges"> 
         <RouterLink to = "/friends">
