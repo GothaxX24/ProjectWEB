@@ -13,6 +13,7 @@
     <router-link to = "/Chats">Chats</router-link>
     <router-link to = "/ViewEvent">ViewEvent</router-link>
     <router-link to = "/inChat">inChat</router-link>
+
   </nav>
   <router-view></router-view>
 </template>
