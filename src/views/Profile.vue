@@ -26,10 +26,10 @@
     </h3>
 
     <div>
-        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="grande" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
     </div>
     <div>
         <button @click="$router.push('/eventslist')" >Manage my events</button>
@@ -51,8 +51,7 @@
     height: 50px;
     }
     img.mediana{
-    width: 100px;
-    height: 100px;
+    width: 100%;
     }
     img.grande{
     object-fit: cover;
