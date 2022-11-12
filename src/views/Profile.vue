@@ -25,11 +25,11 @@
         Recent events
     </h3>
 
-    <div>
-        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+    <div> 
+        <article class="division"><img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg"></article>
+        <article class="division"><img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg"></article>
+        <article class="division"><img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg"></article>
+        <article class="division"><img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg"></article>
     </div>
     <div>
         <button @click="$router.push('/eventslist')" >Manage my events</button>
@@ -46,6 +46,10 @@
 </template>
 
 <style>
+    .division{
+        width: 50%;
+    }
+
     img.pequeña{
     width: 50px;
     height: 50px;
