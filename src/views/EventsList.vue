@@ -1,93 +1,120 @@
 <template>
     <main>
-        <h1>EVENTS</h1>
-        <label class="prueba4">Search event</label>
         <div>
-            <div class="prueba3">
-                <label class="letranegrita">Name </label> 
-                <input class="margeopcions" type="text" placeholder="" name="" required> 
-
-                <label class="margedate"> Date </label> 
-                <input class="margeopcions" type="date" placeholder="" name="" required> 
+            <h1>EVENTS</h1>
+            <label class="prueba4">Search event</label>
+            <div>
+                <div class="prueba3">
+                    <label class="letranegrita">Name </label> 
+                    <input class="margeopcions1" type="text" placeholder="" name="" required> 
+                </div>
+                <div class="prueba3">
+                    <label class="letranegrita"> Date </label> 
+                    <input class="margeopcions2" type="date" placeholder="" name="" required> 
+                </div>
+                <div class="prueba3">
+                    <label class="letranegrita">Location </label> 
+                    <input class="margeopcions3" type="text" placeholder="" name="" required> 
+                </div>
             </div>
-            <div class="prueba3">
-                <label class="letranegrita">Location </label> 
-                <input class="margeopcions" type="text" placeholder="" name="" required> 
+            <div class="prueba2">
+                <button class="buttoncreate" @click="$router.push('/createevent')" type="button">Create your own EVENT</button>
+                <div class ="prueba">
+                    <label>Sort by: </label>    
+                    <div class="desplegable">
+                        <button class="button">Select an option</button>
+                        <div class="links">
+                            <a href="#">Name</a>
+                            <a href="#">Date</a>
+                            <a href="#">Location (proximity)</a>
+                            <a href="#">Rating</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <div class="margegran">
+                    <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height="75 ">
+                    <div>
+                        <div class="aaa">
+                            <label class="marginnameofevent">EventName</label>
+                            <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="35" height="35"/>
+                            <div class="marge4">
+                                <label class="nameofcreator">CreatorName</label>
+                            </div>
+                        </div>
+                        <div class="margetop3">
+                            <label class="marginstreet">11/12/2022</label>
+                            <label class="streetsize">c/NameStr 291, BCN</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="margegran">
+                    <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height="75 ">
+                    <div>
+                        <div class="aaa">
+                            <label class="marginnameofevent">EventName</label>
+                            <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="35" height="35"/>
+                            <div class="marge4">
+                                <label class="nameofcreator">CreatorName</label>
+                            </div>
+                        </div>
+                        <div class="margetop3">
+                            <label class="marginstreet">11/12/2022</label>
+                            <label class="streetsize">c/NameStr 291, BCN</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="margegran">
+                    <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height="75 ">
+                    <div>
+                        <div class="aaa">
+                            <label class="marginnameofevent">EventName</label>
+                            <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="35" height="35"/>
+                            <div class="marge4">
+                                <label class="nameofcreator">CreatorName</label>
+                                <form>
+                                    <p class="clasificacion">
+                                        <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                                        --><label for="radio1">★</label><!--
+                                        --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                                        --><label for="radio2">★</label><!--
+                                        --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                                        --><label for="radio3">★</label><!--
+                                        --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                                        --><label for="radio4">★</label><!--
+                                        --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                                        --><label for="radio5">★</label>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="margetop3">
+                            <label class="marginstreet">11/12/2022</label>
+                            <label class="streetsize">c/NameStr 291, BCN</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
+                    <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
+                    <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
+                </div>
             </div>
         </div>
-        <div class="prueba2">
-            <button class="buttoncreate" @click="$router.push('/createevent')" type="button">Create your own EVENT</button>
-            <div class ="prueba">
-                <label>Sort by: </label>    
-                <div class="desplegable">
-                    <button class="button">Select an option</button>
-                    <div class="links">
-                        <a href="#">Name</a>
-                        <a href="#">Date</a>
-                        <a href="#">Location (proximity)</a>
-                        <a href="#">Rating</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <div class="margegran">
-                <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="135" height="135">
-                <div>
-                    <div class="aaa">
-                        <label class="marginnameofevent">Name of event </label>
-                        <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="70" height="70"/>
-                        <div class="marge4">
-                            <label class="nameofcreator"> Name of creator</label>
-                        </div>
-                    </div>
-                    <div class="margetop3">
-                        <label class="marginstreet">11/12/2022</label>
-                        <label>c/NameStr 291, BCN</label>
-                    </div>
-                </div>
-            </div>
-            <div class="margegran">
-                <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="135" height="135">
-                <div>
-                    <div class="aaa">
-                        <label class="marginnameofevent">Name of event </label>
-                        <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="70" height="70"/>
-                        <div class="marge4">
-                            <label class="nameofcreator"> Name of creator</label>
-                        </div>
-                    </div>
-                    <div class="margetop3">
-                        <label class="marginstreet">11/12/2022</label>
-                        <label>c/NameStr 291, BCN</label>
-                    </div>
-                </div>
-            </div>
-            <div class="margegran">
-                <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="135" height="135">
-                <div>
-                    <div class="aaa">
-                        <label class="marginnameofevent">Name of event </label>
-                        <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="70" height="70"/>
-                        <div class="marge4">
-                            <label class="nameofcreator"> Name of creator</label>
-                        </div>
-                    </div>
-                    <div class="margetop3">
-                        <label class="marginstreet">11/12/2022</label>
-                        <label>c/NameStr 291, BCN</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
-                <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
-                <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
-            </div>
     </main>
 </template>
 
 
 <style>
+
+
+.centerall{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .row{
     display: flex;
@@ -98,6 +125,7 @@
 
 .buttoncreate{
     margin-top: 20px;
+    width: 130px;
     background-color: aliceblue;
 }
 
@@ -120,44 +148,63 @@
     font-weight: bolder;
 }
 
-.margeopcions{
+.margeopcions1{
     margin-left:10px;
+    width: 228px;
+}
+
+.margeopcions2{
+    margin-left:10px;
+    width: 240px;
+}
+
+.margeopcions3{
+    margin-left:10px;
+    width: 205px;
 }
 
 .prueba3 {   
     display: flex;
     align-items: flex-start;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.marge4{
     margin-top: 10px;
     margin-left: 20px;
 }
 
+.marge4{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
 .margetop3{
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .margefotoperfil{
     margin-top: 5px;
 }
 
-.marginnameofevent{
-    margin-left: 20px;
-    margin-right: 30px;
+.marginnameofevent{  
+    font-size: x-small;
     font-weight: bolder;
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .marginstreet{
-    margin-right: 120px;
-    margin-left: 20px;
+    margin-right: 15px;
+    font-size: x-small;
+}
+
+.streetsize{
+    font-size: x-small;
 }
 
 .nameofcreator{
     font-weight: bolder;
+    font-size: x-small;
 }
 
 .aaa{
@@ -168,21 +215,26 @@
 
 .margegran{
     display: flex;
-    flex-direction: row; 
-    padding: 20px;
+    flex-direction: row;
+    padding-left: 20px; 
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;;
 }
 
 .prueba2{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin-bottom: 30px;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 .prueba{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 28px;
 }
 
 .alignelements{
