@@ -1,5 +1,5 @@
 <template>
-            
+            Hola
                <div class="general">
                     <div class="signUp-title">
                         <h1 class="signUp-title2">EVENTASTIC</h1>
