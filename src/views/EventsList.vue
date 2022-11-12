@@ -19,10 +19,9 @@
             </div>
             <div class="prueba2">
                 <button class="buttoncreate" @click="$router.push('/createevent')" type="button">Create your own EVENT</button>
-                <div class ="prueba">
-                    <label>Sort by: </label>    
+                <div class ="prueba"> 
                     <div class="desplegable">
-                        <button class="button">Select an option</button>
+                        <button class="button">Sort by</button>
                         <div class="links">
                             <a href="#">Name</a>
                             <a href="#">Date</a>
@@ -182,7 +181,7 @@ label {
 
 .buttoncreate{
     margin-top: 20px;
-    width: 130px;
+    width: 160px;
     background-color: aliceblue;
 }
 
@@ -286,9 +285,7 @@ label {
 
 .prueba{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 28px;
+        margin-left: 30px;
 }
 
 .alignelements{
@@ -308,7 +305,6 @@ label {
 
 .desplegable{
     position: absolute;
-    margin-top: 30px;
 }
 
 .button{
