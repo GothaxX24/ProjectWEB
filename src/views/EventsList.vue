@@ -1,6 +1,6 @@
 <template>
-    <main>
-        <div>
+    
+        <div id="eventList">
             <h1>EVENTS</h1>
             <label class="prueba4">Search event</label>
             <div>
@@ -33,7 +33,7 @@
             </div>
             <div >
                 <div class="margegran">
-                    <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height="75 ">
+                    <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" height="75 ">
                     <div>
                         <div class="aaa">
                             <label class="marginnameofevent">EventName</label>
@@ -130,11 +130,22 @@
                 </div>
             </div>
         </div>
-    </main>
+    <div style="background-color: red; display: flex; justify-content: center;">
+        -----
+        <div style="background-color: black; width: 100px">
+            hola
+        </div>
+        ------
+    </div>
 </template>
 
 
 <style>
+
+#eventlist{
+    display: flex;
+    justify-content: center;
+}
 #form {
   width: 250px;
   margin: 0 auto;
@@ -192,7 +203,7 @@ label {
 
 .prueba4{
     display: flex;
-    align-items: flex-start;
+    justify-content: center;
     margin-top: 10px;
     margin-left: 60px;  
     font-size: larger;
@@ -221,7 +232,7 @@ label {
 
 .prueba3 {   
     display: flex;
-    align-items: flex-start;
+    justify-content:center;
     margin-top: 10px;
     margin-left: 20px;
 }
