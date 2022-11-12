@@ -1,56 +1,45 @@
 <template>
-            Hola
-               <div class="general">
-                    <div class="signUp-title">
-                        <h1 class="signUp-title2">EVENTASTIC</h1>
-                        <div class = " signUp-image">
-                            <img class="imageconfig" src="https://user-images.githubusercontent.com/48566979/54383069-a4162000-4667-11e9-9b43-e649269a0bd8.png" >
+    <div class="general">
+        <div class="signUp-title">
+            <h1 class="signUp-title2">EVENTASTIC</h1>
+            <div class = " signUp-image">
+                <img class="imageconfig" src="https://user-images.githubusercontent.com/48566979/54383069-a4162000-4667-11e9-9b43-e649269a0bd8.png" >
 
-                        </div>
-                    </div>
-                    <div class="signUp-menu"> 
-                        
-                        
-                    
-                        <label class="signUp-label">What is your username?</label>   
-                    
-                    
-                        <input class="general-input" type="text" placeholder="Enter Username" name="username" required>        
-                    
-
-                    
-                        <label class="signUp-label">What is your password? </label> 
-                    
-
-                
-                        <input class="general-input" type="password" placeholder="Enter Password" name="password" required>
-                    
-                    
-                    
-                        <label class="signUp-label">Confirm your Password</label>
-                    
-
-                    
-                        <input class="general-input" type="password" placeholder="Confirm Password" name="confirm password" > 
-                            
-
-                    </div>
-                    <div class = "signUp-button-block" >
-                        <button @click="$router.push('/')" class="signUp-button"><strong>Sign Up</strong></button>
-                    </div>
-                </div>
-                    
-                
-                    
-
-                    
-
-                
-          
+            </div>
+        </div>
+        <div class="signUp-menu"> 
             
+            
+        
+            <label class="signUp-label">What is your username?</label>   
+        
+        
+            <input class="general-input" type="text" placeholder="Enter Username" name="username" required>        
+        
 
+        
+            <label class="signUp-label">What is your password? </label> 
+        
 
+    
+            <input class="general-input" type="password" placeholder="Enter Password" name="password" required>
+        
+        
+        
+            <label class="signUp-label">Confirm your Password</label>
+        
+
+        
+            <input class="general-input" type="password" placeholder="Confirm Password" name="confirm password" > 
+                
+
+        </div>
+        <div class = "signUp-button-block" >
+            <button @click="$router.push('/')" class="signUp-button"><strong>Sign Up</strong></button>
+        </div>
+    </div>
 </template>
+
 <style>
     .imageconfig{
         width: 100%;
