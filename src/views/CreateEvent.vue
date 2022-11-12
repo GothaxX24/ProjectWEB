@@ -50,9 +50,9 @@
                 <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="60" height="60">
                 <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="60" height="60">
                 <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="60" height="60">
-                <img class="margeright" src="http://cdn.onlinewebfonts.com/svg/img_28512.png" width="60" height="60">
+                <img src="http://cdn.onlinewebfonts.com/svg/img_28512.png" width="60" height="60">
             </div>
-            <div class="margetop2">
+            <div class="margetop30">
                 <button class="alignright" @click="$router.push('/homepage')" type="button">Create Event</button>
             </div>
 
@@ -105,7 +105,7 @@
     margin-top: 10px;
 }
 
-.margetop2{
+.margetop30{
     margin-top: 30px;
 }
 

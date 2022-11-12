@@ -97,7 +97,7 @@
                     <div>
                         <div class="aaa">
                             <label class="marginnameofevent">EventName</label>
-                            <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
+                            <img class="margintop5" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
                             <div class="marge4">
                                 <label class="nameofcreator">CreatorName</label>
                                 <form>
@@ -234,7 +234,7 @@ label {
 }
 
 
-.margefotoperfil{
+.margintop5{
     margin-top: 5px;
 }
 
