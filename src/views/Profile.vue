@@ -3,7 +3,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     
-    <img class="circular-image" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="200" height="200"/> 
+    <img class="circular-image" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="150" height="150"/> 
 
     <h2>My profile</h2>
 
@@ -25,22 +25,23 @@
         Recent events
     </h3>
 
-    <div> 
-        <article class="division"><img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg"></article>
-        <article class="division"><img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg"></article>
-        <article class="division"><img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg"></article>
-        <article class="division"><img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg"></article>
+    <div id="product-list">
+
+        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
     </div>
+
     <div>
-        <button @click="$router.push('/eventslist')" >Manage my events</button>
+        <button @click="$router.push('/eventslist')" class="manage-button">Manage my events</button>
     </div>
     <div>  
-        <button @click="$router.push('/firstpage')" >SignOut</button>
+        <button @click="$router.push('/firstpage')" class="signout-button">SignOut</button>
     </div>
     <div>
-        <button @click="$router.push('/firstpage')" type="button">Delete account</button>
+        <button @click="$router.push('/firstpage')" class="delete-button">Delete account</button>
     </div>
-   
 
  
 </template>
@@ -49,14 +50,13 @@
     .division{
         width: 50%;
     }
-
     img.pequeña{
     width: 50px;
     height: 50px;
     }
     img.mediana{
-    width: 100%;
-    margin-left: 10px;
+    width: 100px;
+    height: 100px;
     }
     img.grande{
     object-fit: cover;
@@ -67,6 +67,46 @@
     .separacioImatges{
         display: flex;
         justify-content: space-around;
+    }
+
+    .delete-button{
+        line-height: 1rem;
+        border-radius: 20px;
+        background-color: rgb(241, 51, 51);
+        border: none;
+        color: white;
+        width: 50%;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .signout-button{
+        line-height: 1rem;
+        border-radius: 20px;
+        background-color: rgb(75, 63, 242);
+        border: none;
+        color: white;
+        width: 40%;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .manage-button{
+        line-height: 1rem;
+        border-radius: 20px;
+        background-color: rgb(25, 212, 63);
+        border: none;
+        color: white;
+        width: 75%;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    #product-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 0.5rem;
+        align-items: baseline;
+        flex-wrap: wrap;
     }
 
 </style>
