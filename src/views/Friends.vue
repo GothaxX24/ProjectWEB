@@ -39,12 +39,14 @@
                         <label><strong>Add more friends!</strong></label> 
                     </div>
                     <br>
-                    <div class = body_friends7>
-                        <label>Send request to:</label> 
-                    </div>
-                    
-                    <div class = body_friends8>
-                        <input type="text" placeholder="Enter Username or email" name="username or email" required>     
+                    <div class = body_friends9>
+                        <div class = body_friends7>
+                            <label>Send request to:</label> 
+                        </div>
+                        
+                        <div class = body_friends8>
+                            <input type="text" placeholder="Enter Username or email" name="username or email" required>     
+                        </div>
                     </div>
                     <br>
                     <button type = "submit"><strong>Send request</strong></button>
@@ -113,11 +115,18 @@
         flex-direction: row;
     }
     .body_friends8{
+        width: 200px;
         font-size: "10";
-        background-color: turquoise;
         font-family: Arial, Helvetica, sans-serif;
         display: flex;
         flex-direction: column-reverse;
+    }
+    .body_friends9{
+        font-size: "10";
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        
     }
     </style>
     
