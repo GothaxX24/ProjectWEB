@@ -44,16 +44,18 @@
     .imageconfig{
         width: 100%;
     }
+
     .signUp-image{
       max-width: 80px;
-
     }
+
     .general {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
+
     .signUpBody{
         display: flex;
         align-items: center;
@@ -61,28 +63,25 @@
         flex-direction: column;
         max-width: 500px;
     }
+
     .signUp-button-block{
         display: flex;
         justify-content: center;
     }
+
     .signUp-title{
         display: flex;
         align-items: center;
-    
-                
-        
     }
+
     .signUp-title2{
         font-size: clamp(2rem,4vw,60px);
-
     }
-
    
     .signUp-label{
         font-weight: bold;
         margin-bottom:5px;
-        margin-top: 35px;  
-        
+        margin-top: 35px;     
     }
     
     .signUp-menu{
@@ -90,14 +89,9 @@
         flex-direction: column;
         align-items: baseline;
         justify-content: center;
-        
-    
-        
-
     }
+
     .signUp-button{
-        
-        
         line-height: 1.5rem;
         border-radius: 50px;
         background-color: rgb(39, 69, 202);
@@ -106,14 +100,15 @@
         width: 150px;
         cursor: pointer;
         margin-top: 30px;
-
     }
 
     .signUp-buttonhover {
         opacity: .8;
     }
+
     .signUp-buttonactive {
         opacity: .5;
     }
+
 </style>
 

@@ -12,11 +12,16 @@
             <input class = "general-input" type="password" placeholder="Password" name="password" required>        
         </div>
 
-        <button @click="$router.push('/')" >LogIn</button>
+        <div class = "signUp-button-block" >
+            <button @click="$router.push('/')" class="logIn-button"><strong>Log in</strong></button>
+        </div>
 
         <p>If you don't have an account, create one:</p>
 
-        <button @click="$router.push('/signup')">SignUp</button>
+        <div class = "signUp-button-block" >
+            <button @click="$router.push('/signup')" class="signUp-button"><strong>Sign Up</strong></button>
+        </div>
+
     </main>
 </template>
 
@@ -25,5 +30,30 @@
     margin-bottom: 30px;
    }
 
+   .signUp-button-block{
+        display: flex;
+        justify-content: center;
+    }
+
+    .signUp-button{
+        line-height: 1.5rem;
+        border-radius: 50px;
+        background-color: rgb(32, 59, 179);
+        border: none;
+        color: white;
+        width: 40%px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .logIn-button{
+        line-height: 1.5rem;
+        border-radius: 20px;
+        background-color: rgb(36, 70, 222);
+        border: none;
+        color: white;
+        width: 75%;
+        cursor: pointer;
+    }
 
 </style>
