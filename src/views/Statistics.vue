@@ -2,13 +2,12 @@
 
     <h1>Statistics</h1>
 
-
     <div class="foto">
-        <article>
-            <img class="circular-image" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="200" height="200"/>
+        <article class="articl">
+            <img class="foto-perfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/>
         </article>
-        <article>
-            <h3>Average puntuation</h3>
+        <article class="articl">
+            <h3>"Average puntuation"</h3>
             <form>
             <p class="clasificacion">
                 <input id="radio1" type="radio" name="estrellas" value="5"><!--
@@ -36,11 +35,6 @@
         <h3>"User" is in the top "x"% of users with more number of comments! </h3>
     </div>
 
-    <div>
-        <h3>Lastests comments:</h3>
-
-    </div>
-
 </template>
 
 <style>
@@ -49,6 +43,15 @@
     align-items:center;
     justify-content: space-around;
     
+}
+
+.foto-perfil{
+  border-radius: 50%;
+  width: 75%;
+}
+
+.articl{
+  width: 50%;
 }
 
 #form {
