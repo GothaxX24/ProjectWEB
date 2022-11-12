@@ -45,8 +45,6 @@
     
 }
 
-<<<<<<< HEAD
-=======
 .foto-perfil{
   border-radius: 50%;
   width: 75%;
@@ -91,5 +89,4 @@ label:hover ~ label {
 input[type="radio"]:checked ~ label {
   color: orange;
 }
->>>>>>> 8e6d3558964823e02895bb78992cad5dd314f49c
 </style>
