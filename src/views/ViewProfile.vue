@@ -9,7 +9,7 @@
 
     <div class="separacioImatges"> 
         <RouterLink to = "/friends">
-            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
+            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png">
         </RouterLink>
 
         <RouterLink to="/statistics">
