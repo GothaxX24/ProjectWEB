@@ -1,8 +1,8 @@
 <template>
     <main>
         <div>
-            <h1>EVENTS</h1>
-            <label class="prueba4">Search event</label>
+            <h1>EVENTS HISTORY</h1>
+            <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="130" height="130">
             <div>
                 <div class="prueba3">
                     <label class="letranegrita">Name </label> 
@@ -15,21 +15,6 @@
                 <div class="prueba3">
                     <label class="letranegrita">Location </label> 
                     <input class="margeopcions3" type="text" placeholder="" name="" required> 
-                </div>
-            </div>
-            <div class="prueba2">
-                <button class="buttoncreate" @click="$router.push('/createevent')" type="button">Create your own EVENT</button>
-                <div class ="prueba">
-                    <label>Sort by: </label>    
-                    <div class="desplegable">
-                        <button class="button">Select an option</button>
-                        <div class="links">
-                            <a href="#">Name</a>
-                            <a href="#">Date</a>
-                            <a href="#">Location (proximity)</a>
-                            <a href="#">Rating</a>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div >
