@@ -134,13 +134,12 @@ img.grande{
 .alignright{
     margin-left: 170px;
     background-color: blue;    
-        
-        line-height: 1.5rem;
-        border-radius: 50px;
-        background-color: rgb(39, 69, 202);
-        border: none;
-        color: white;
-        cursor: pointer;
+    line-height: 1.5rem;
+    border-radius: 50px;
+    background-color: rgb(39, 69, 202);
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
 .separacioImatges{
