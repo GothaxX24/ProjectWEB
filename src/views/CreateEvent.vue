@@ -4,22 +4,13 @@
             EVENT CREATION!
         </h1>
 
-        <div class="createEvent-general">
-            <div class="boxbox">
-                <div class="row">
-                    <div class="text">
-                        <p>Welcome "Creator name" to event creation</p>
-                    </div>
-                    <div class="column">
-                        <img class="circular-image" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="100" height="100"/>
+        <div class="foto" >
+         
+            <article class="foto2"> Welcome "Creator name" to event creation</article>
+            <article><img class="circular-image" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="100" height="100"/> </article> 
 
-                    </div>
-                
+     
 
-                </div>
-            </div>
-           
- 
         </div>
         
         <div class="norma">
@@ -39,27 +30,27 @@
                 <label class="letranegrita">Location </label> 
                 <input class="allargar2" type="Text" placeholder="" name="" required> 
             </div>
-            <div class="margetop">
+            <div class="maineventimg">
                 <label class="letranegrita">Main event image</label>
             </div>
             <div class="centraimg">
-                <img class="margetop" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="100" height="100"/>
+                <img class="margetop" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="90" height="90"/>
             </div>
-            <div>
+            <div class="descriptionword">
                 <label class="letranegrita">Description</label>
             </div>
             <div class="margetop">
                 <input class="description" type="Text" placeholder="" name="" required>
             </div>
-            <div class="margetop">
+            <div class="additionalimages">
                 <label class="letranegrita">Additional images</label>
                 <label> (Optional)</label>
             </div>
             <div class="margetop">
-                <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="135" height="135">
-                <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="135" height="135">
-                <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="135" height="135">
-                <img class="margeright" src="http://cdn.onlinewebfonts.com/svg/img_28512.png" width="135" height="135">
+                <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="60" height="60">
+                <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="60" height="60">
+                <img class="margeright" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="60" height="60">
+                <img class="margeright" src="http://cdn.onlinewebfonts.com/svg/img_28512.png" width="60" height="60">
             </div>
             <div class="margetop2">
                 <button class="alignright" @click="$router.push('/homepage')" type="button">Create Event</button>
@@ -73,6 +64,23 @@
 </template>
 
 <style>
+.additionalimages{
+    margin-top: 10px;
+    margin-right: 98px; 
+}
+
+.descriptionword{
+    margin-top: 10px;
+    margin-right: 225px;  
+}
+
+.maineventimg{
+ 
+    margin-top: 10px;
+    margin-right: 175px;
+
+}
+
 .foto2 {
     max-width: 180px;
 }
@@ -114,7 +122,7 @@
 }
 
 .description{
-    width: 560px;
+    width: 310px;
     height: 130px;
 }
 
@@ -124,7 +132,15 @@ img.grande{
 }
 
 .alignright{
-    margin-left: 450px;
+    margin-left: 170px;
+    background-color: blue;    
+        
+        line-height: 1.5rem;
+        border-radius: 50px;
+        background-color: rgb(39, 69, 202);
+        border: none;
+        color: white;
+        cursor: pointer;
 }
 
 .separacioImatges{
