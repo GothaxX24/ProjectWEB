@@ -52,6 +52,7 @@
     }
     img.mediana{
     width: 100%;
+    margin-left: 10px;
     }
     img.grande{
     object-fit: cover;
