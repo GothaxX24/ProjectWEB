@@ -7,9 +7,7 @@
 
             </div>
         </div>
-        <div class="signUp-menu"> 
-            
-            
+        <div class="signUp-menu">
         
             <label class="signUp-label">What is your username?</label>   
         

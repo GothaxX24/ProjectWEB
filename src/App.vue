@@ -4,6 +4,7 @@
 
 <template>
   <router-view></router-view>
+
   <nav>
     <router-link to="/signup">SignUp  </router-link>
     <router-link to="/firstpage">FirstPage  </router-link>
@@ -15,7 +16,7 @@
     <router-link to = "/ViewEvent">ViewEvent  </router-link>
     <router-link to = "/inChat">inChat  </router-link>
     <router-link to = "/EventsList">EventsList  </router-link>
-
+    <router-link to = "/statistics">Statistics  </router-link>
   </nav>
 </template>
   
