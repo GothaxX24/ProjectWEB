@@ -4,15 +4,16 @@
 
 <template>
   <nav>
-    <router-link to="/signup">SignUp</router-link>
-    <router-link to="/firstpage">FirstPage</router-link>
-    <router-link to="/profile">Profile</router-link>
-    <router-link to="/viewprofile">ViewProfile</router-link>
-    <router-link to = "/CreateEvent">Create Event</router-link>
-    <router-link to = "/Friends">Friends</router-link>
-    <router-link to = "/Chats">Chats</router-link>
-    <router-link to = "/ViewEvent">ViewEvent</router-link>
-    <router-link to = "/inChat">inChat</router-link>
+    <router-link to="/signup">SignUp  </router-link>
+    <router-link to="/firstpage">FirstPage  </router-link>
+    <router-link to="/profile">Profile  </router-link>
+    <router-link to="/viewprofile">ViewProfile  </router-link>
+    <router-link to = "/CreateEvent">Create Event  </router-link>
+    <router-link to = "/Friends">Friends  </router-link>
+    <router-link to = "/Chats">Chats  </router-link>
+    <router-link to = "/ViewEvent">ViewEvent  </router-link>
+    <router-link to = "/inChat">inChat  </router-link>
+    <router-link to = "/EventsList">EventsList  </router-link>
 
   </nav>
   <router-view></router-view>
