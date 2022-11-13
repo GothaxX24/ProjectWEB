@@ -1,17 +1,21 @@
 <template>
     <div class="menu">
-        <button class="btn-menu"><img class="icono" src="https://assets.stickpng.com/images/588a6507d06f6719692a2d15.png"/></button>
+        <img class="icono" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/>
         <div class="menulinks">
             <RouterLink to="/profile">
-                <img class="icono" src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png">      
+                <img class="icono-menu" src="https://static.thenounproject.com/png/638636-200.png">
+                <a>Profile </a>      
             </RouterLink>
             <RouterLink to="/friends">
+                <img class="icono-menu" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
                 <a>Friends</a>
             </RouterLink>
             <RouterLink to="/eventslist">
+                <img class="icono-menu" src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png">
                 <a>Search event</a>
             </RouterLink>    
             <RouterLink to="/createevent">
+                <img class="icono-menu" src="https://cdn-icons-png.flaticon.com/512/32/32339.png">
                 <a>Create event</a>
             </RouterLink> 
             
@@ -21,36 +25,45 @@
 
 <style>
 
-    .icono{
-    width: 20px;
-    height: 20px;
+    img.icono{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .icono-menu{
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
     }
 
     .btn-menu{
-        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 0;
+        margin: 0;
     }
     .menulinks a{
-
         color: rgb(24, 24, 24);
-        display: block;
-        
-        padding: 2px;
+        display: flex;
+        padding: 3px;
     }
     .menulinks{
+        border-radius: 10%;
         background-color: #f9f9f9;
         width: 150px;
         display: none;
     }
     .menulinks a:hover{
-        background-color: rgb(111, 111, 111);
+        color: rgb(62, 59, 233);
     }
     .menu:hover .menulinks{
         display: block;
     }
     .menu{
-        position: absolute;
+        display: flex;
+        flex-direction: column;
     }
-
     .desplegable:hover .links{
     display: block;
     background-color:antiquewhite;

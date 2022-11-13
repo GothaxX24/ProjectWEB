@@ -3,7 +3,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     
-    <img class="circular-image" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="150" height="150"/> 
+    <img class="profile-pic" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/> 
 
     <h2>My profile</h2>
 
@@ -47,6 +47,13 @@
 </template>
 
 <style>
+    .profile-pic{
+        min-width: 100px; 
+        min-height: 100px;
+        width: 20%;
+        border-radius: 50%;
+        
+    }
     .division{
         width: 50%;
     }
@@ -70,7 +77,7 @@
     }
 
     .delete-button{
-        max-width: 500px;
+        max-width: 25%;
         min-width: 225px;
         line-height: 1rem;
         border-radius: 20px;
@@ -82,7 +89,7 @@
         margin-top: 10px;
     }
     .signout-button{
-        max-width: 400px;
+        max-width: 20%;
         min-width: 225px;
         line-height: 1rem;
         border-radius: 20px;
@@ -94,7 +101,7 @@
         margin-top: 10px;
     }
     .manage-button{
-        max-width: 300px;
+        max-width: 25%;
         min-width: 225px;
         line-height: 1rem;
         border-radius: 20px;
