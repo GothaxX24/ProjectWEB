@@ -70,6 +70,8 @@
     }
 
     .delete-button{
+        max-width: 500px;
+        min-width: 225px;
         line-height: 1rem;
         border-radius: 20px;
         background-color: rgb(241, 51, 51);
@@ -80,6 +82,8 @@
         margin-top: 10px;
     }
     .signout-button{
+        max-width: 400px;
+        min-width: 225px;
         line-height: 1rem;
         border-radius: 20px;
         background-color: rgb(75, 63, 242);
@@ -90,6 +94,8 @@
         margin-top: 10px;
     }
     .manage-button{
+        max-width: 300px;
+        min-width: 225px;
         line-height: 1rem;
         border-radius: 20px;
         background-color: rgb(25, 212, 63);
