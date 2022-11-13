@@ -6,33 +6,36 @@
                 
             </header>
                 
-            <div> 
+            <div class = all> 
                       
-                    <div class = body_friends1>
+                    <div class = users>
                     <label><strong>Your friends: </strong></label>         
                     </div>
     
-                    <div class = body_friends2>
+                    <div class = users>
                         <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                        <label>User 1</label> 
+                        <button class= "users_button" @click="$router.push('/viewprofile')" type="button"><strong>User1</strong></button>
                     </div>
             
-                    <div class = body_friends3>
+                    <div class = users>
                         <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                        <label>User 2</label> 
+                        <button class= "users_button" @click="$router.push('/viewprofile')" type="button"><strong>User2</strong></button>
                     </div>
                     
-                    <div class = body_friends4>
+                    <div class = users>
                         <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                        <label>User 3</label> 
+                        <button class= "users_button" @click="$router.push('/viewprofile')" type="button"><strong>User3</strong></button>
                     </div>
                    
-                    <div class = body_friends5>
+                    <div class = users>
                         <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                        <label>User 4</label> 
+                        <button class= "users_button" @click="$router.push('/viewprofile')" type="button"><strong>User4</strong></button>
                     </div>
 
                     <br>
+                    <div class = chats_button>
+                        <button class= "chats_button" @click="$router.push('/Chats')" type="button"><strong>Go to chat!</strong></button>
+                    </div>
                     <br>
                 
                     <div class = body_friends6>
@@ -49,56 +52,58 @@
                         </div>
                     </div>
                     <br>
-                    <button type = "submit"><strong>Send request</strong></button>
-                    
+                    <div class = send_req>
+                        <button class = send_button type = "submit"><strong>Send request</strong></button>
+                    </div>
             </div>      
             
     </template>
     <style>
+    .all {
+        max-width: 100%;
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
     .header_friends{ 
         
         font-family: 'Courier New', Courier, monospace;
-        font-size:medium    ;   
+        font-size:medium;   
       }
-    .body_friends1{
+    .users{
         border:3px solid black;
         font-size: "5";
         background-color: turquoise;
         font-family : Arial, Helvetica, sans-serif;
         display: flex;
-        flex-direction: row;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        width: 600px;
     }
-    .body_friends2{
-        border:3px solid black;
-        font-size: "5";
+    .users_button {
+        font-size: "2";
+        color:black;
         background-color: turquoise;
         font-family: Arial, Helvetica, sans-serif;
-        display: flex;
         flex-direction: row;
+        text-align: center;
+        padding: 0 50px 0 55px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border-radius: 15px;
     }
-    .body_friends3{
-        border:3px solid black;
-        font-size: "5";
-        background-color: turquoise;
+    
+    .chats_button {
+        font-size: "13";
+        border-color: turquoise;
+        color : black;
         font-family: Arial, Helvetica, sans-serif;
         display: flex;
-        flex-direction: row;
-    }
-    .body_friends4{
-        border:3px solid black;
-        font-size: "5";
-        background-color: turquoise;
-        font-family: Arial, Helvetica, sans-serif;
-        display: flex;
-        flex-direction: row;
-    }
-    .body_friends5{
-        border:3px solid black;
-        font-size: "5";
-        background-color: turquoise;
-        font-family: Arial, Helvetica, sans-serif;
-        display: flex;
-        flex-direction: row;
+        justify-content: center;
+
     }
     .body_friends6{
         text-shadow: 0 0 3px #1cb0b0;
@@ -128,6 +133,18 @@
         justify-content: center;
         
     }
+    .send_req {
+        font-size: "13";
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        
+    }
+    .send_button {
+        background-color: black;
+        color:turquoise;
+    }
+    
     </style>
     
     
