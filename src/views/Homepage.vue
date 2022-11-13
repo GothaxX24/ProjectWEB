@@ -61,8 +61,10 @@
         display: block;
     }
     .menu{
+        position: absolute;
         display: flex;
         flex-direction: column;
+
     }
     .desplegable:hover .links{
     display: block;

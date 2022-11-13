@@ -2,8 +2,12 @@
     <head>
         <link rel="stylesheet" href="style.css" />
     </head>
-    
-    <img class="profile-pic" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/> 
+    <div>
+        <RouterLink to = "/">
+            <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
+        </RouterLink>
+        <img class="profile-pic" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/> 
+    </div>
 
     <h2>My profile</h2>
 
@@ -25,12 +29,11 @@
         Recent events
     </h3>
 
-    <div id="product-list">
-
-        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="mediana" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+    <div id="recent-events">
+        <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+        <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
     </div>
 
     <div>
@@ -47,33 +50,38 @@
 </template>
 
 <style>
+    img.back{
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        display: flex;
+    }
     .profile-pic{
         min-width: 100px; 
         min-height: 100px;
         width: 20%;
         border-radius: 50%;
-        
+        align-self: left;
+
     }
-    .division{
-        width: 50%;
+    .separacioImatges{
+        display: flex;
+        justify-content: space-around;
     }
     img.pequeña{
     width: 50px;
     height: 50px;
     }
-    img.mediana{
-    width: 100px;
-    height: 100px;
-    }
-    img.grande{
-    object-fit: cover;
-    width: 200px;
-    height: 200px;
-    margin: 5px;
-    }
-    .separacioImatges{
+    #recent-events {
         display: flex;
-        justify-content: space-around;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 0.5rem;
+        align-items: baseline;
+    }
+    img.imgevent{
+    width: 150px;
+    height: 150px;
     }
 
     .delete-button{
@@ -112,14 +120,4 @@
         cursor: pointer;
         margin-top: 20px;
     }
-
-    #product-list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        gap: 0.5rem;
-        align-items: baseline;
-        flex-wrap: wrap;
-    }
-
 </style>
