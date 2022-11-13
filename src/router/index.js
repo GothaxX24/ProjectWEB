@@ -21,7 +21,7 @@ const routes = [
         component: SignUp
     },
     {
-        path: '/firstpage',
+        path: '/',
         name: 'firstpage',
         component: FirstPage,
     },
@@ -51,7 +51,7 @@ const routes = [
         component: Friends,
     },
     {
-        path: '/',
+        path: '/homepage',
         name: 'homepage',
         component: Homepage,
     },
