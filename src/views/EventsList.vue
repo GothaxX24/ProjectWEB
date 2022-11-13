@@ -21,148 +21,148 @@
                 <img class="iconos-menu" src="https://cdn-icons-png.flaticon.com/512/32/32339.png">
                 <a>Create event</a>
             </RouterLink> 
-            
+    
         </div>
     </div>
-    <div id="eventlist">
-        <h1>EVENTS</h1>
-        <label class="EventsList-SearchEvent">Search event</label>
-        <div>
-            <div class="EventsList-margin1">
-                <label class="letranegrita">Name </label> 
-                <input class="EventsList-nameinput" type="text" placeholder="" name="" required> 
-            </div>
-            <div class="EventsList-margin1">
-                <label class="letranegrita"> Date </label> 
-                <input class="EventsList-dateinput" type="date" placeholder="" name="" required> 
-            </div>
-            <div class="EventsList-margin1">
-                <label class="letranegrita">Location </label> 
-                <input class="EventsList-locationinput" type="text" placeholder="" name="" required> 
-            </div>
-        </div>
-        <div class="EventsList-middle">
-            <button class="EventsList-middle-buttoncreate" @click="$router.push('/createevent')" type="button">Create your own EVENT</button>
-            <div class ="EventList-middle-desplegableflex"> 
-                <div class="EventList-middle-desplegable">
-                    <button class="EventList-middle-button">Sort by</button>
-                    <div class="EventList-middle-links">
-                        <a href="#">Name</a>
-                        <a href="#">Date</a>
-                        <a href="#">Location (proximity)</a>
-                        <a href="#">Rating</a>
-                    </div>
+        <div id="eventlist">
+            <h1>EVENTS</h1>
+            <label class="EventsList-SearchEvent">Search event</label>
+            <div>
+                <div class="EventsList-margin1">
+                    <label class="letranegrita">Name </label> 
+                    <input class="EventsList-nameinput" type="text" placeholder="" name="" required> 
+                </div>
+                <div class="EventsList-margin1">
+                    <label class="letranegrita"> Date </label> 
+                    <input class="EventsList-dateinput" type="date" placeholder="" name="" required> 
+                </div>
+                <div class="EventsList-margin1">
+                    <label class="letranegrita">Location </label> 
+                    <input class="EventsList-locationinput" type="text" placeholder="" name="" required> 
                 </div>
             </div>
-        </div>
-        <div >
-            <div class="EventsList-bottom">
-                <div>
-                    <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
-                </div>
-                <div>
-                    <div class="EventsList-bottom-flex">
-                        <label class="EventsList-bottom-eventname">EventName</label>
-                        <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
-                        <div class="EventList-bottom-flex2">
-                            <label class="EventList-bottom-creatorname">CreatorName</label>
-                            <form>
-                                <div class="clasificacion">
-                                    <input id="radio1" type="radio" name="estrellas" value="5">
-                                    <label for="radio1">★</label>
-                                    <input id="radio2" type="radio" name="estrellas" value="4">
-                                    <label for="radio2">★</label>
-                                    <input id="radio3" type="radio" name="estrellas" value="3">
-                                    <label for="radio3">★</label>
-                                    <input id="radio4" type="radio" name="estrellas" value="2">
-                                    <label for="radio4">★</label>
-                                    <input id="radio5" type="radio" name="estrellas" value="1">
-                                    <label for="radio5">★</label>
-                                </div>
-                            </form>
+            <div class="EventsList-middle">
+                <button class="EventsList-middle-buttoncreate" @click="$router.push('/createevent')" type="button">Create your own EVENT</button>
+                <div class ="EventList-middle-desplegableflex"> 
+                    <div class="EventList-middle-desplegable">
+                        <button class="EventList-middle-button">Sort by</button>
+                        <div class="EventList-middle-links">
+                            <a href="#">Name</a>
+                            <a href="#">Date</a>
+                            <a href="#">Location (proximity)</a>
+                            <a href="#">Rating</a>
                         </div>
                     </div>
-                    <div >
-                        <label class="EventList-bottom-date">11/12/2022</label>
-                        <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
-                    </div>
                 </div>
             </div>
+            <div >
+                <div class="EventsList-bottom">
+                    <div>
+                        <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
+                    </div>
+                    <div>
+                        <div class="EventsList-bottom-flex">
+                            <label class="EventsList-bottom-eventname">EventName</label>
+                            <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
+                            <div class="EventList-bottom-flex2">
+                                <label class="EventList-bottom-creatorname">CreatorName</label>
+                                <form>
+                                    <div class="clasificacion">
+                                        <input id="radio1" type="radio" name="estrellas" value="5">
+                                        <label for="radio1">★</label>
+                                        <input id="radio2" type="radio" name="estrellas" value="4">
+                                        <label for="radio2">★</label>
+                                        <input id="radio3" type="radio" name="estrellas" value="3">
+                                        <label for="radio3">★</label>
+                                        <input id="radio4" type="radio" name="estrellas" value="2">
+                                        <label for="radio4">★</label>
+                                        <input id="radio5" type="radio" name="estrellas" value="1">
+                                        <label for="radio5">★</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div >
+                            <label class="EventList-bottom-date">11/12/2022</label>
+                            <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="EventsList-bottom">
-                <div>
-                    <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
-                </div>
-                <div>
-                    <div class="EventsList-bottom-flex">
-                        <label class="EventsList-bottom-eventname">EventName</label>
-                        <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
-                        <div class="EventList-bottom-flex2">
-                            <label class="EventList-bottom-creatorname">CreatorName</label>
-                            <form>
-                                <div class="clasificacion">
-                                    <input id="radio1" type="radio" name="estrellas" value="5">
-                                    <label for="radio1">★</label>
-                                    <input id="radio2" type="radio" name="estrellas" value="4">
-                                    <label for="radio2">★</label>
-                                    <input id="radio3" type="radio" name="estrellas" value="3">
-                                    <label for="radio3">★</label>
-                                    <input id="radio4" type="radio" name="estrellas" value="2">
-                                    <label for="radio4">★</label>
-                                    <input id="radio5" type="radio" name="estrellas" value="1">
-                                    <label for="radio5">★</label>
-                                </div>
-                            </form>
+                <div class="EventsList-bottom">
+                    <div>
+                        <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
+                    </div>
+                    <div>
+                        <div class="EventsList-bottom-flex">
+                            <label class="EventsList-bottom-eventname">EventName</label>
+                            <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
+                            <div class="EventList-bottom-flex2">
+                                <label class="EventList-bottom-creatorname">CreatorName</label>
+                                <form>
+                                    <div class="clasificacion">
+                                        <input id="radio1" type="radio" name="estrellas" value="5">
+                                        <label for="radio1">★</label>
+                                        <input id="radio2" type="radio" name="estrellas" value="4">
+                                        <label for="radio2">★</label>
+                                        <input id="radio3" type="radio" name="estrellas" value="3">
+                                        <label for="radio3">★</label>
+                                        <input id="radio4" type="radio" name="estrellas" value="2">
+                                        <label for="radio4">★</label>
+                                        <input id="radio5" type="radio" name="estrellas" value="1">
+                                        <label for="radio5">★</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div >
+                            <label class="EventList-bottom-date">11/12/2022</label>
+                            <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
                         </div>
                     </div>
-                    <div >
-                        <label class="EventList-bottom-date">11/12/2022</label>
-                        <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
-                    </div>
                 </div>
-            </div>
 
-            <div class="EventsList-bottom">
-                <div>
+                <div class="EventsList-bottom">
+                    <div>
                     <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
-                </div>
-                <div>
-                    <div class="EventsList-bottom-flex">
-                        <label class="EventsList-bottom-eventname">EventName</label>
-                        <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
-                        <div class="EventList-bottom-flex2">
-                            <label class="EventList-bottom-creatorname">CreatorName</label>
-                            <form>
-                                <div class="clasificacion">
-                                    <input id="radio1" type="radio" name="estrellas" value="5">
-                                    <label for="radio1">★</label>
-                                    <input id="radio2" type="radio" name="estrellas" value="4">
-                                    <label for="radio2">★</label>
-                                    <input id="radio3" type="radio" name="estrellas" value="3">
-                                    <label for="radio3">★</label>
-                                    <input id="radio4" type="radio" name="estrellas" value="2">
-                                    <label for="radio4">★</label>
-                                    <input id="radio5" type="radio" name="estrellas" value="1">
-                                    <label for="radio5">★</label>
-                                </div>
-                            </form>
+                    </div>
+                    <div>
+                        <div class="EventsList-bottom-flex">
+                            <label class="EventsList-bottom-eventname">EventName</label>
+                            <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
+                            <div class="EventList-bottom-flex2">
+                                <label class="EventList-bottom-creatorname">CreatorName</label>
+                                <form>
+                                    <div class="clasificacion">
+                                        <input id="radio1" type="radio" name="estrellas" value="5">
+                                        <label for="radio1">★</label>
+                                        <input id="radio2" type="radio" name="estrellas" value="4">
+                                        <label for="radio2">★</label>
+                                        <input id="radio3" type="radio" name="estrellas" value="3">
+                                        <label for="radio3">★</label>
+                                        <input id="radio4" type="radio" name="estrellas" value="2">
+                                        <label for="radio4">★</label>
+                                        <input id="radio5" type="radio" name="estrellas" value="1">
+                                        <label for="radio5">★</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div >
+                            <label class="EventList-bottom-date">11/12/2022</label>
+                            <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
                         </div>
                     </div>
-                    <div >
-                        <label class="EventList-bottom-date">11/12/2022</label>
-                        <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
-                    </div>
                 </div>
-            </div>
-            
-            
-            <div class="EventsList-bottom-row">
-                <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
-                <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
-                <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
+                
+                
+                <div class="EventsList-bottom-row">
+                    <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
+                    <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
+                    <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
+                </div>
             </div>
         </div>
-    </div>
 </template>
 
 
@@ -224,7 +224,7 @@
     margin-left: 30px;
 }
 
-.EventList-middle-desplegable:hover .links{
+.EventList-middle-desplegable:hover .EventList-middle-links{
     display: block;
     background-color:antiquewhite;
 }
