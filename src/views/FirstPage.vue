@@ -19,7 +19,7 @@
         </div>
 
         <div class = "signUp-button-block" >
-            <button @click="$router.push('/')" class="logIn-button"><strong>Log in</strong></button>
+            <button @click="$router.push('/eventslist')" class="logIn-button"><strong>Log in</strong></button>
         </div>
 
         <label class="signUp-label">If you don't have an account, create one:</label>
