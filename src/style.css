@@ -155,5 +155,75 @@ button:focus-visible {
 .desplegable:hover .links{
 display: block;
 background-color:antiquewhite;
-  
+}
+
+img.back{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  display: flex;
+}
+.profile-pic{
+  min-width: 100px; 
+  min-height: 100px;
+  width: 20%;
+  border-radius: 50%;
+  align-self: left;
+
+}
+.separacioImatges{
+  display: flex;
+  justify-content: space-around;
+}
+.pequeña{
+width: 50px;
+height: 50px;
+}
+#recent-events {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.imgevent{
+width: 150px;
+height: 150px;
+}
+
+.delete-button{
+  max-width: 25%;
+  min-width: 225px;
+  line-height: 1rem;
+  border-radius: 20px;
+  background-color: rgb(241, 51, 51);
+  border: none;
+  color: white;
+  width: 50%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.signout-button{
+  max-width: 20%;
+  min-width: 225px;
+  line-height: 1rem;
+  border-radius: 20px;
+  background-color: rgb(75, 63, 242);
+  border: none;
+  color: white;
+  width: 40%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.manage-button{
+  max-width: 25%;
+  min-width: 225px;
+  line-height: 1rem;
+  border-radius: 20px;
+  background-color: rgb(25, 212, 63);
+  border: none;
+  color: white;
+  width: 75%;
+  cursor: pointer;
+  margin-top: 20px;
 }
