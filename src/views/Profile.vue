@@ -3,7 +3,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <div>
-        <RouterLink to = "/">
+        <RouterLink to = "/eventslist">
             <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
         </RouterLink>
         <img class="profile-pic" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/> 
@@ -40,10 +40,10 @@
         <button @click="$router.push('/eventslist')" class="manage-button">Manage my events</button>
     </div>
     <div>  
-        <button @click="$router.push('/firstpage')" class="signout-button">SignOut</button>
+        <button @click="$router.push('/')" class="signout-button">SignOut</button>
     </div>
     <div>
-        <button @click="$router.push('/firstpage')" class="delete-button">Delete account</button>
+        <button @click="$router.push('/')" class="delete-button">Delete account</button>
     </div>
 
  

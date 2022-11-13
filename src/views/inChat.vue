@@ -1,9 +1,14 @@
 <template>
-                
+    <div>
+        
+    </div>  
         <div class = "inChat-all">
+            
             <div class="inChat-header">
+                <RouterLink to = "/friends">
                     <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
                     <label style="color: white; margin-left: 10px;"><strong>User 1</strong></label>         
+                </RouterLink>    
             </div>
             
             

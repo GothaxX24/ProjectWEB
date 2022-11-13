@@ -58,7 +58,9 @@
             <div >
                 <div class="EventsList-bottom">
                     <div>
-                        <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
+                        <RouterLink to = "/viewevent">
+                            <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
+                        </RouterLink>  
                     </div>
                     <div>
                         <div class="EventsList-bottom-flex">
@@ -91,7 +93,9 @@
 
                 <div class="EventsList-bottom">
                     <div>
-                        <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
+                        <RouterLink to = "/viewevent">
+                            <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
+                        </RouterLink>
                     </div>
                     <div>
                         <div class="EventsList-bottom-flex">
@@ -124,7 +128,9 @@
 
                 <div class="EventsList-bottom">
                     <div>
-                    <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
+                        <RouterLink to = "/viewevent">
+                            <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
+                        </RouterLink>
                     </div>
                     <div>
                         <div class="EventsList-bottom-flex">

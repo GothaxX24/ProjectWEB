@@ -78,7 +78,7 @@
                 <img src="http://cdn.onlinewebfonts.com/svg/img_28512.png" width="60" height="60">
             </div>
             <div class="margintop30">
-                <button class="alignright" @click="$router.push('/homepage')" type="button">Create Event</button>
+                <button class="alignright" @click="$router.push('/eventslist')" type="button">Create Event</button>
             </div>
 
         </div>

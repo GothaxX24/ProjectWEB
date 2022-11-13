@@ -1,4 +1,14 @@
 <template>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <div>
+        <RouterLink to = "/eventslist">
+            <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
+        </RouterLink>
+        <img class="profile-pic" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/> 
+    </div>
+
     <h1 class="viewProfile-title">"NAME OF THE EVENT"</h1>
     <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="130" height="130">
 
