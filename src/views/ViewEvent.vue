@@ -28,7 +28,7 @@
         <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrYlFVRZ9D13i-_PIRiotOBfMVbraV4dFPw&usqp=CAU" width="30" height="30">
     </div>
     <form>
-        <div class="clasificacion">
+        <div class="clasificacion2">
             <input id="radio1" type="radio" name="estrellas" value="5">
             <label class ="tamanyestrellas" for="radio1">★</label>
             <input id="radio2" type="radio" name="estrellas" value="4">
@@ -47,25 +47,8 @@
 
 <style>
 
-#form {
-  width: 250px;
-  margin: 0 auto;
-  height: 50px;
-}
 
-#form div {
-  text-align: center;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-label {
-  color: grey;
-}
-
-.clasificacion {
+.clasificacion2 {
     margin-top: 10px;
   direction: rtl;
   unicode-bidi: bidi-override;

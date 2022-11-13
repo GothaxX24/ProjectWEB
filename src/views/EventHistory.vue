@@ -1,31 +1,31 @@
 <template>
     <main>
-        <div>
+        <div id="eventlist">
             <h1>EVENTS HISTORY</h1>
             <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="130" height="130">
             <div>
-                <div class="prueba3">
+                <div class="EventsList-margin1">
                     <label class="letranegrita">Name </label> 
-                    <input class="margeopcions1" type="text" placeholder="" name="" required> 
+                    <input class="EventsList-nameinput" type="text" placeholder="" name="" required> 
                 </div>
-                <div class="prueba3">
+                <div class="EventsList-margin1">
                     <label class="letranegrita"> Date </label> 
-                    <input class="margeopcions2" type="date" placeholder="" name="" required> 
+                    <input class="EventsList-dateinput" type="date" placeholder="" name="" required> 
                 </div>
-                <div class="prueba3">
+                <div class="EventsList-margin1">
                     <label class="letranegrita">Location </label> 
-                    <input class="margeopcions3" type="text" placeholder="" name="" required> 
+                    <input class="EventsList-locationinput" type="text" placeholder="" name="" required> 
                 </div>
             </div>
             <div >
-                <div class="margegran">
+                <div class="EventsList-bottom">
                     <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height="75 ">
                     <div>
-                        <div class="aaa">
-                            <label class="marginnameofevent">EventName</label>
-                            <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
-                            <div class="marge4">
-                                <label class="nameofcreator">CreatorName</label>
+                        <div class="EventsList-bottom-flex">
+                            <label class="EventsList-bottom-eventname">EventName</label>
+                            <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
+                            <div class="EventList-bottom-flex2">
+                                <label class="EventList-bottom-creatorname">CreatorName</label>
                                 <form>
                                     <div class="clasificacion">
                                         <input id="radio1" type="radio" name="estrellas" value="5">
@@ -43,19 +43,20 @@
                             </div>
                         </div>
                         <div >
-                            <label class="marginstreet">11/12/2022</label>
-                            <label class="streetsize">c/NameStr 291, BCN</label>
+                            <label class="EventList-bottom-date">11/12/2022</label>
+                            <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
                         </div>
                     </div>
                 </div>
-                <div class="margegran">
+
+                <div class="EventsList-bottom">
                     <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height="75 ">
                     <div>
-                        <div class="aaa">
-                            <label class="marginnameofevent">EventName</label>
-                            <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
-                            <div class="marge4">
-                                <label class="nameofcreator">CreatorName</label>
+                        <div class="EventsList-bottom-flex">
+                            <label class="EventsList-bottom-eventname">EventName</label>
+                            <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
+                            <div class="EventList-bottom-flex2">
+                                <label class="EventList-bottom-creatorname">CreatorName</label>
                                 <form>
                                     <div class="clasificacion">
                                         <input id="radio1" type="radio" name="estrellas" value="5">
@@ -73,19 +74,20 @@
                             </div>
                         </div>
                         <div >
-                            <label class="marginstreet">11/12/2022</label>
-                            <label class="streetsize">c/NameStr 291, BCN</label>
+                            <label class="EventList-bottom-date">11/12/2022</label>
+                            <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
                         </div>
                     </div>
                 </div>
-                <div class="margegran">
+
+                <div class="EventsList-bottom">
                     <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height="75 ">
                     <div>
-                        <div class="aaa">
-                            <label class="marginnameofevent">EventName</label>
-                            <img class="margefotoperfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
-                            <div class="marge4">
-                                <label class="nameofcreator">CreatorName</label>
+                        <div class="EventsList-bottom-flex">
+                            <label class="EventsList-bottom-eventname">EventName</label>
+                            <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
+                            <div class="EventList-bottom-flex2">
+                                <label class="EventList-bottom-creatorname">CreatorName</label>
                                 <form>
                                     <div class="clasificacion">
                                         <input id="radio1" type="radio" name="estrellas" value="5">
@@ -103,13 +105,13 @@
                             </div>
                         </div>
                         <div >
-                            <label class="marginstreet">11/12/2022</label>
-                            <label class="streetsize">c/NameStr 291, BCN</label>
+                            <label class="EventList-bottom-date">11/12/2022</label>
+                            <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
                         </div>
                     </div>
                 </div>
                 
-                <div class="row">
+                <div class="EventsList-bottom-row">
                     <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
                     <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
                     <img src="https://img.freepik.com/iconos-gratis/numero-cuadrado-redondeado_318-10115.jpg" width="25" height="25"/>
