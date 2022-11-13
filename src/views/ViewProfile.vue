@@ -13,7 +13,7 @@
 
     <div class="separacioImatges"> 
         <RouterLink to = "/friends">
-            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png">
+            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
         </RouterLink>
 
         <RouterLink to="/statistics">
@@ -34,9 +34,5 @@
         <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
         <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
         <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-    </div>
-    
-   
-
- 
+    </div>w
 </template>
