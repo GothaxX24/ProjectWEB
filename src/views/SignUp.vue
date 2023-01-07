@@ -1,3 +1,36 @@
+<script>
+
+export default {
+        data() {
+            return {
+            name: "",
+            lastname: "",
+            email: "",
+            image: "",
+            password: ""
+            }
+
+        },
+    
+        methods: {
+            signup() {
+                fetch("http://puigmal.salle.url.edu/api/v2/users/login", {
+                        method: "POST",
+                        headers: {
+                        "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ name: this.name, lastname: this.lastname, email: this.email, image: this.image, password: this.password }), 
+                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                        
+                            
+                        });
+            }
+        }
+    }
+</script>
+
 <template>
     <div class="general">
         <div class="signUp-title">
@@ -9,10 +42,28 @@
         </div>
         <div class="signUp-menu">
         
-            <label class="signUp-label">What is your username?</label>   
+            <label class="signUp-label">What is your Name?</label>   
         
         
-            <input class="general-input" type="text" placeholder="Enter Username" name="username" required>        
+            <input v-model="name" class="general-input" type="text" placeholder="Enter Name" name="name" required>
+            
+
+            <label class="signUp-label">What is your Lastname?</label>   
+        
+        
+            <input v-model="lastname" class="general-input" type="text" placeholder="Enter Lastname" name="lastname" required>  
+
+
+            <label class="signUp-label">What is your Email?</label>   
+        
+        
+            <input v-model="email" class="general-input" type="text" placeholder="Enter Email" name="email" required> 
+
+
+            <label class="signUp-label">Add your user image path</label>   
+        
+        
+            <input v-model="image" class="general-input" type="text" placeholder="Enter Image Path" name="image" required> 
         
 
         
@@ -20,7 +71,7 @@
         
 
     
-            <input class="general-input" type="password" placeholder="Enter Password" name="password" required>
+            <input v-model="password" class="general-input" type="password" placeholder="Enter Password" name="password" required>
         
         
         

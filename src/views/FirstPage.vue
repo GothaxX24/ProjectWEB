@@ -1,3 +1,38 @@
+<script>
+
+export default {
+        data() {
+            return {
+            email: "",
+            password: ""
+            }
+
+        },
+    
+        methods: {
+            login() {
+                fetch("http://puigmal.salle.url.edu/api/v2/users/login", {
+                        method: "POST",
+                        headers: {
+                        "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ email: this.email, password: this.password }), 
+                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                        if(data.accessToken){
+                            window.localStorage.setItem("token", data.accessToken);
+                            location.replace("/eventslist");
+                        } else {
+                            console.log("error", data);
+                            alert("Error: wrong email or password");
+                        }
+                        });
+            }
+        }
+    }
+</script>
+
 <template>
    
         <div class="general">
@@ -12,14 +47,14 @@
         <label class="signUp-label">Login to your account:</label>
 
         <div class="divlag">          
-            <input type="text" class="general-input" placeholder="E-mail" name="username" required>
+            <input v-model="email" type="text" class="general-input" placeholder="E-mail" name="username" required>
         </div>
         <div class="divlag">         
-            <input class = "general-input" type="password" placeholder="Password" name="password" required>        
+            <input v-model="password" class = "general-input" type="password" placeholder="Password" name="password" required>        
         </div>
 
         <div class = "signUp-button-block" >
-            <button @click="$router.push('/eventslist')" class="logIn-button"><strong>Log in</strong></button>
+            <button @click="login" class="logIn-button"><strong>Log in</strong></button>
         </div>
 
         <label class="signUp-label">If you don't have an account, create one:</label>
