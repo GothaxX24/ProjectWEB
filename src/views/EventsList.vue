@@ -1,3 +1,34 @@
+<script>
+    export default {
+            data() {
+                return {
+                    events: []
+                }
+
+            },
+            methods: {
+            eventslist() {
+                fetch("http://puigmal.salle.url.edu/api/v2/events", {
+                    headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    for (let i=0; i<data.length;i++) {
+                        this.events = data[i];
+                    }
+                })
+            }, 
+
+            getEventID(id) {
+                window.localStorage.setItem("eventid", id);
+            }
+        }
+        }
+
+
+</script>
+
+
 <template>
     <head>
         <link rel="stylesheet" href="style.css" />

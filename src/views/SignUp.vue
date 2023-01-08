@@ -7,25 +7,35 @@ export default {
             lastname: "",
             email: "",
             image: "",
-            password: ""
+            password: "",
+            passconfirm: ""
             }
 
         },
     
         methods: {
-            signup() {
-                fetch("http://puigmal.salle.url.edu/api/v2/users/login", {
+            signup(name, lastname, email, image, password, passconfirm) {
+                fetch("http://puigmal.salle.url.edu/api/v2/users", {
                         method: "POST",
                         headers: {
                         "Content-Type": "application/json",
                         },
-                        body: JSON.stringify({ name: this.name, lastname: this.lastname, email: this.email, image: this.image, password: this.password }), 
+                        body: JSON.stringify({ name: this.name, last_name: this.lastname, email: this.email, image: this.image, password: this.password }), 
                     })
-                        .then((res) => res.json())
-                        .then((data) => {
-                        
-                            
-                        });
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.name){
+                        if (password == passconfirm) {
+                            location.replace("/");
+                        }
+                        else {
+                            alert('Passwords must be the same')
+                        }
+                    } else {
+                        alert('Missing information or email already exists')
+                    }
+                });
             }
         }
     }
@@ -79,12 +89,12 @@ export default {
         
 
         
-            <input class="general-input" type="password" placeholder="Confirm Password" name="confirm password" > 
+            <input v-model="passconfirm" class="general-input" type="password" placeholder="Confirm Password" name="confirm password" > 
                 
 
         </div>
         <div class = "signUp-button-block" >
-            <button @click="$router.push('/')" class="signUp-button"><strong>Sign Up</strong></button>
+            <button v-on:click.prevent="signup({name, lastname, email, image, password, passconfirm})" class="signUp-button"><strong>Sign Up</strong></button>
         </div>
     </div>
 </template>

@@ -22,6 +22,16 @@ export default {
                         .then((data) => {
                         if(data.accessToken){
                             window.localStorage.setItem("token", data.accessToken);
+                            console.log(data);
+
+                            fetch ('http://puigmal.salle.url.edu/api/v2/users/search?s=' + this.email ,{
+                                headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                            })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                window.localStorage.setItem("userid" ,data.id);
+                            })
+
                             location.replace("/eventslist");
                         } else {
                             console.log("error", data);
