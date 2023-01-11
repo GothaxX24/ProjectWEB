@@ -1,3 +1,59 @@
+<script>
+    export default {
+                data() {
+                    return {
+                        username: "",
+                        userimage: "",
+                        eventname: "",
+                        eventimage: "",
+                        eventlocation: "",
+                        eventdescription: "",
+                        eventparticipants: "",
+                        eventtype: "",
+                        eventstart: "",
+                        eventend: "",
+                    }
+
+                },
+                methods: {
+                    getCreatorUser() {
+                        fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid"), {
+                            headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                        })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            this.username = data[0].name + " " + data[0].last_name;
+                            this.userimage = data[0].image;
+                        })
+                    },
+
+                    postEvent(eventname, eventimage, eventlocation, eventdescription, eventparticipants, eventtype, eventstart, eventend) {
+                        fetch("http://puigmal.salle.url.edu/api/v2/events", {
+                            method: "POST",
+                            headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")},
+                            body: JSON.stringify({ name: this.eventname, image: this.eventimage, location: this.eventlocation, description: this.eventdescription, n_participators: this.eventparticipants,
+                                                type: this.eventtype, eventStart_date: this.eventstart, eventEnd_date: this.eventend 
+                            }), 
+                        })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            if (data.name) {
+                                location.replace("/eventslist");
+                            }
+                            else {
+                                alert('Missing information');
+                            }
+                        })
+                    }
+
+                },
+
+                created() {
+                    this.getCreatorUser()
+                }
+    }
+</script>
+
 <template>
     <head>
         <link rel="stylesheet" href="style.css" />
@@ -30,8 +86,8 @@
         
             <div class="CreateEvent-top" >
             
-                <article class="CreateEvent-top-letters"> Welcome "Creator name" to event creation</article>
-                <article><img class="circular-image" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="100" height="100"/> </article> 
+                <article class="CreateEvent-top-letters"> Welcome <strong>{{username}}</strong> to event creation</article>
+                <article><img class="circular-image" v-bind:src=userimage width="100" height="100"/> </article> 
 
         
 
@@ -41,19 +97,20 @@
         <div class="CreateEvent-middle">
             <div class="margintop10">
                 <label class="letranegrita">Name </label> 
-                <input class="CreateEvent-middle-nameinput" type="text" placeholder="" name="" required> 
+                <input v-model="eventname" class="CreateEvent-middle-nameinput" type="text" placeholder="" name="" required> 
             </div>
             
             <div class="margintop10">
-                <label class="letranegrita">Date </label> 
-                <input class="marginright10" type="Date" placeholder="" name="" required>
-
-                <label class="letranegrita">Duration </label> 
-                <input type="Time" placeholder="" name="" required> 
+                <label class="letranegrita">Start Date </label> 
+                <input v-model="eventstart" class="marginright10" type="datetime-local" placeholder="" name="" required>
+            </div>
+            <div>
+                <label class="letranegrita">End Date </label> 
+                <input v-model="eventend" class="marginright10" type="datetime-local" placeholder="" name="" required>
             </div>
             <div class="margintop10">
                 <label class="letranegrita">Location </label> 
-                <input class="CreateEvent-middle-locationinput" type="Text" placeholder="" name="" required> 
+                <input v-model="eventlocation" class="CreateEvent-middle-locationinput" type="Text" placeholder="" name="" required> 
             </div>
             <div class="CreateEvent-middle-maineventimg">
                 <label class="letranegrita">Main event image</label>
@@ -65,7 +122,15 @@
                 <label class="letranegrita">Description</label>
             </div>
             <div class="margintop10">
-                <input class="CreateEvent-middle-descriptioninput" type="Text" placeholder="" name="" required>
+                <input v-model="eventdescription" class="CreateEvent-middle-descriptioninput" type="Text" placeholder="" name="" required>
+            </div>
+            <div class="margintop10">
+                <label class="letranegrita">Event Type </label>
+                <input v-model="eventtype" class="CreateEvent-middle-typeinput" type="text" placeholder="" name="" required> 
+            </div>
+            <div class="margintop10">
+                <label class="letranegrita">Max. Participants </label>
+                <input v-model="eventparticipants" class="CreateEvent-middle-partinput" type="number" placeholder="" name="" required> 
             </div>
             <div class="CreateEvent-middle-additionalimages">
                 <label class="letranegrita">Additional images</label>
@@ -78,7 +143,7 @@
                 <img src="http://cdn.onlinewebfonts.com/svg/img_28512.png" width="60" height="60">
             </div>
             <div class="margintop30">
-                <button class="alignright" @click="$router.push('/eventslist')" type="button">Create Event</button>
+                <button class="alignright" @click="postEvent({eventname, eventimage, eventlocation, eventdescription, eventparticipants, eventtype, eventstart, eventend})" type="button">Create Event</button>
             </div>
 
         </div>
@@ -110,6 +175,14 @@
 
 .CreateEvent-middle-nameinput{
    width: 250px;
+}
+
+.CreateEvent-middle-typeinput{
+   width: 214px;
+}
+
+.CreateEvent-middle-partinput{
+   width: 166px;
 }
 
 .CreateEvent-middle-locationinput{

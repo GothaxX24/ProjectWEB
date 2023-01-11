@@ -9,6 +9,7 @@
                 description: "",
                 start_date: "",
                 end_date: "",
+                userimage: ""
                 }
 
             },
@@ -28,6 +29,14 @@
                         this.start_date = data[0].eventStart_date
                         this.end_date = data[0].eventEnd_date
                         console.log(this.name);
+
+                        fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("currenteventowner"), {
+                                    headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                                })
+                                .then((res) => res.json())
+                                .then((data) => {
+                                        this.userimage = data[0].image;
+                                })
 
                     })
                     
@@ -50,11 +59,11 @@
         <RouterLink to = "/eventslist">
             <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
         </RouterLink>
-        <img class="profile-pic" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/> 
+        <img class="profile-pic" v-bind:src=userimage> 
     </div>
 
     <h1 class="viewProfile-title">"{{name}}"</h1>
-    <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="130" height="130">
+    <img v-bind:src=image width="130" height="130">
 
     <div>
         <div class="margintop10">

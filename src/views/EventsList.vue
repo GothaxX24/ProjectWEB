@@ -2,7 +2,13 @@
     export default {
             data() {
                 return {
-                    events: []
+                    events: [],
+                    correctDate: [],
+                    username: [],
+                    image: [],
+                    searchdate: "",
+                    searchkeyword: "",
+                    searchlocation: ""
                 }
 
             },
@@ -15,14 +21,85 @@
                     .then((data) => {
                         //for (let i=0; i<data.length;i++) {
                             this.events = data;
+                            this.getRightDate;
+                            for (let i=0; i<data.length;i++) {
+                                fetch("http://puigmal.salle.url.edu/api/v2/users/" + this.events[i].owner_id, {
+                                    headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                                })
+                                .then((res) => res.json())
+                                .then((data) => {
+                                        this.username[i] = data[0].name + " " +  data[0].last_name;
+                                        this.image[i] = data[0].image;
+                                })
+                            }
                         //}
-                        console.log(this.events);
                     })
                 }, 
 
                 getEventID(index) {
                     let id = this.events[index].id
+                    let userid = this.events[index].owner_id
                     window.localStorage.setItem("eventid", id);
+                    window.localStorage.setItem("currenteventowner", userid);
+                },
+
+                getRightDate() {
+                    console.log(this.events)
+                    this.events[0].eventStart_date.substring(0, 9) = this.correctDate[0];
+                },
+
+                eventlistByName(searchlocation, searchdate, searchkeyword) {
+                    let path = "?";
+                    if (this.searchlocation) {
+                        path = path + "location=" + this.searchlocation + "&";
+                    }
+                    if (this.searchdate) {
+                        path = path + "date=" + this.searchdate + "&";
+                    }
+                    if (this.searchkeyword) {
+                        path = path + "keyword=" + this.searchkeyword + "&";
+                    }
+                    path.slice(0, -1);
+                    console.log(path);
+
+                    fetch("http://puigmal.salle.url.edu/api/v2/events/search" + path, {
+                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        this.events = data;
+                        for (let i=0; i<data.length;i++) {
+                            fetch("http://puigmal.salle.url.edu/api/v2/users/" + this.events[i].owner_id, {
+                                headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                            })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                    this.username[i] = data[0].name + " " +  data[0].last_name;
+                                    this.image[i] = data[0].image;
+                            })
+                        }
+                    })
+                },
+
+                sortByBest() {
+                    fetch("http://puigmal.salle.url.edu/api/v2/events/best", {
+                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        this.events = data;
+                        console.log(data);
+                        for (let i=0; i<data.length;i++) {
+                            fetch("http://puigmal.salle.url.edu/api/v2/users/" + this.events[i].owner_id, {
+                                headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                            })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                    this.username[i] = data[0].name + " " +  data[0].last_name;
+                                    this.image[i] = data[0].image;
+                            })
+                        }
+                    })
                 }
             },
 
@@ -64,18 +141,19 @@
         <div id="eventlist">
             <h1>EVENTS</h1>
             <label class="EventsList-SearchEvent">Search event</label>
+            <button v-on:click.prevent="eventlistByName({searchlocation, searchdate, searchkeyword})"><strong>Search</strong></button>
             <div>
                 <div class="EventsList-margin1">
                     <label class="letranegrita">Name </label> 
-                    <input class="EventsList-nameinput" type="text" placeholder="" name="" required> 
+                    <input v-model="searchkeyword" class="EventsList-nameinput" type="text" placeholder="" name="" required> 
                 </div>
                 <div class="EventsList-margin1">
                     <label class="letranegrita"> Date </label> 
-                    <input class="EventsList-dateinput" type="date" placeholder="" name="" required> 
+                    <input v-model="searchdate" class="EventsList-dateinput" type="date" placeholder="" name="" required> 
                 </div>
                 <div class="EventsList-margin1">
                     <label class="letranegrita">Location </label> 
-                    <input class="EventsList-locationinput" type="text" placeholder="" name="" required> 
+                    <input v-model="searchlocation" class="EventsList-locationinput" type="text" placeholder="" name="" required> 
                 </div>
             </div>
             <div class="EventsList-middle">
@@ -87,7 +165,7 @@
                             <a href="#">Name</a>
                             <a href="#">Date</a>
                             <a href="#">Location (proximity)</a>
-                            <a href="#">Rating</a>
+                            <a href="#" v-on:click="sortByBest()" >Rating</a>
                         </div>
                     </div>
                 </div>
@@ -96,15 +174,15 @@
                 <div class="EventsList-bottom" v-for="(evento, index) in events">
                     <div>
                         <RouterLink to = "/viewevent" v-on:click="getEventID(index)">
-                            <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
+                            <img class="EventList-eventimg" v-bind:src=evento.image width="75" height = "75">
                         </RouterLink>  
                     </div>
                     <div>
                         <div class="EventsList-bottom-flex">
                             <label class="EventsList-bottom-eventname">{{evento.name}}</label>
-                            <img v-bind:src=evento.image width="45" height="45"/>
+                            <img v-bind:src=image[index] width="45" height="45"/>
                             <div class="EventList-bottom-flex2">
-                                <label class="EventList-bottom-creatorname">CreatorName</label>
+                                <label class="EventList-bottom-creatorname">{{username[index]}}</label>
                                 <form>
                                     <div class="clasificacion">
                                         <input id="radio1" type="radio" name="estrellas" value="5">
@@ -122,7 +200,7 @@
                             </div>
                         </div>
                         <div >
-                            <label class="EventList-bottom-date">{{evento.eventStart_date}}</label>
+                            <label class="EventList-bottom-date">{{correctDate[index]}}</label>
                             <label class="EventList-bottom-street">{{evento.location}}</label>
                         </div>
                     </div>
