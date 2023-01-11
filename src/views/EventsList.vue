@@ -7,22 +7,26 @@
 
             },
             methods: {
-            eventslist() {
-                fetch("http://puigmal.salle.url.edu/api/v2/events", {
-                    headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
-                })
-                .then((res) => res.json())
-                .then((data) => {
-                    for (let i=0; i<data.length;i++) {
-                        this.events = data[i];
-                    }
-                })
-            }, 
+                eventslist() {
+                    fetch("http://puigmal.salle.url.edu/api/v2/events", {
+                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        for (let i=0; i<data.length;i++) {
+                            this.events = data[i];
+                        }
+                    })
+                }, 
 
-            getEventID(id) {
-                window.localStorage.setItem("eventid", id);
+                getEventID() {
+                    window.localStorage.setItem("eventid", id);
+                }
+            },
+
+            created() {
+                this.eventslist()
             }
-        }
         }
 
 
@@ -89,14 +93,14 @@
             <div >
                 <div class="EventsList-bottom">
                     <div>
-                        <RouterLink to = "/viewevent">
+                        <RouterLink to = "/viewevent" v-on:click="getEventID()">
                             <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
                         </RouterLink>  
                     </div>
                     <div>
-                        <div class="EventsList-bottom-flex">
-                            <label class="EventsList-bottom-eventname">EventName</label>
-                            <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
+                        <div class="EventsList-bottom-flex" v-for="(evento, index) in events">
+                            <label class="EventsList-bottom-eventname">{{evento.name}}</label>
+                            <img v-bind:src=evento.image width="45" height="45"/>
                             <div class="EventList-bottom-flex2">
                                 <label class="EventList-bottom-creatorname">CreatorName</label>
                                 <form>
@@ -116,81 +120,13 @@
                             </div>
                         </div>
                         <div >
-                            <label class="EventList-bottom-date">11/12/2022</label>
-                            <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
+                            <label class="EventList-bottom-date">{{evento.eventStart_date}}</label>
+                            <label class="EventList-bottom-street">{{evento.location}}</label>
                         </div>
                     </div>
                 </div>
 
-                <div class="EventsList-bottom">
-                    <div>
-                        <RouterLink to = "/viewevent">
-                            <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
-                        </RouterLink>
-                    </div>
-                    <div>
-                        <div class="EventsList-bottom-flex">
-                            <label class="EventsList-bottom-eventname">EventName</label>
-                            <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
-                            <div class="EventList-bottom-flex2">
-                                <label class="EventList-bottom-creatorname">CreatorName</label>
-                                <form>
-                                    <div class="clasificacion">
-                                        <input id="radio1" type="radio" name="estrellas" value="5">
-                                        <label for="radio1">★</label>
-                                        <input id="radio2" type="radio" name="estrellas" value="4">
-                                        <label for="radio2">★</label>
-                                        <input id="radio3" type="radio" name="estrellas" value="3">
-                                        <label for="radio3">★</label>
-                                        <input id="radio4" type="radio" name="estrellas" value="2">
-                                        <label for="radio4">★</label>
-                                        <input id="radio5" type="radio" name="estrellas" value="1">
-                                        <label for="radio5">★</label>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div >
-                            <label class="EventList-bottom-date">11/12/2022</label>
-                            <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="EventsList-bottom">
-                    <div>
-                        <RouterLink to = "/viewevent">
-                            <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
-                        </RouterLink>
-                    </div>
-                    <div>
-                        <div class="EventsList-bottom-flex">
-                            <label class="EventsList-bottom-eventname">EventName</label>
-                            <img src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="45" height="45"/>
-                            <div class="EventList-bottom-flex2">
-                                <label class="EventList-bottom-creatorname">CreatorName</label>
-                                <form>
-                                    <div class="clasificacion">
-                                        <input id="radio1" type="radio" name="estrellas" value="5">
-                                        <label for="radio1">★</label>
-                                        <input id="radio2" type="radio" name="estrellas" value="4">
-                                        <label for="radio2">★</label>
-                                        <input id="radio3" type="radio" name="estrellas" value="3">
-                                        <label for="radio3">★</label>
-                                        <input id="radio4" type="radio" name="estrellas" value="2">
-                                        <label for="radio4">★</label>
-                                        <input id="radio5" type="radio" name="estrellas" value="1">
-                                        <label for="radio5">★</label>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div >
-                            <label class="EventList-bottom-date">11/12/2022</label>
-                            <label class="EventList-bottom-street">c/NameStr 291, BCN</label>
-                        </div>
-                    </div>
-                </div>
+                
                 
                 
                 <div class="EventsList-bottom-row">
