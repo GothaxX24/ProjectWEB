@@ -22,7 +22,7 @@ export default {
                         .then((data) => {
                         if(data.accessToken){
                             window.localStorage.setItem("token", data.accessToken);
-                            console.log(data);
+                            window.localStorage.setItem("loggedIn", true);
 
                             fetch ('http://puigmal.salle.url.edu/api/v2/users/search?s=' + this.email ,{
                                 headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -38,8 +38,18 @@ export default {
                             alert("Error: wrong email or password");
                         }
                         });
+            },
+
+            isLooged() {
+                if (window.localStorage.getItem("loggedIn")) {
+                    location.replace("/eventslist");
+                }
             }
-        }
+        },
+
+        created() {
+                    this.isLooged()
+             }
     }
 </script>
 

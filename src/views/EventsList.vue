@@ -13,13 +13,15 @@
                     })
                     .then((res) => res.json())
                     .then((data) => {
-                        for (let i=0; i<data.length;i++) {
-                            this.events = data[i];
-                        }
+                        //for (let i=0; i<data.length;i++) {
+                            this.events = data;
+                        //}
+                        console.log(this.events);
                     })
                 }, 
 
-                getEventID() {
+                getEventID(index) {
+                    let id = this.events[index].id
                     window.localStorage.setItem("eventid", id);
                 }
             },
@@ -91,14 +93,14 @@
                 </div>
             </div>
             <div >
-                <div class="EventsList-bottom">
+                <div class="EventsList-bottom" v-for="(evento, index) in events">
                     <div>
-                        <RouterLink to = "/viewevent" v-on:click="getEventID()">
+                        <RouterLink to = "/viewevent" v-on:click="getEventID(index)">
                             <img class="EventList-eventimg" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="75" height = "75">
                         </RouterLink>  
                     </div>
                     <div>
-                        <div class="EventsList-bottom-flex" v-for="(evento, index) in events">
+                        <div class="EventsList-bottom-flex">
                             <label class="EventsList-bottom-eventname">{{evento.name}}</label>
                             <img v-bind:src=evento.image width="45" height="45"/>
                             <div class="EventList-bottom-flex2">

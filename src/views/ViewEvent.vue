@@ -1,3 +1,47 @@
+<script>
+    export default {
+            data() {
+                return {
+                name: "",
+                date: "",
+                image: "",
+                location: "",
+                description: "",
+                start_date: "",
+                end_date: "",
+                }
+
+            },
+            methods: {
+                event() {
+                    fetch("http://puigmal.salle.url.edu/api/v2/events/" + window.localStorage.getItem("eventid"), {
+                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        this.name = data[0].name;
+                        this.date = data[0].date;
+                        this.image = data[0].image;
+                        this.location = data[0].location;
+                        this.description = data[0].description;
+                        this.start_date = data[0].eventStart_date
+                        this.end_date = data[0].eventEnd_date
+                        console.log(this.name);
+
+                    })
+                    
+                }
+
+            
+            },
+
+            created() {
+                    this.event()
+             }
+    }
+</script>
+
 <template>
     <head>
         <link rel="stylesheet" href="style.css" />
@@ -9,24 +53,24 @@
         <img class="profile-pic" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/> 
     </div>
 
-    <h1 class="viewProfile-title">"NAME OF THE EVENT"</h1>
+    <h1 class="viewProfile-title">"{{name}}"</h1>
     <img src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="130" height="130">
 
     <div>
         <div class="margintop10">
             <label class="letranegrita">Date </label> 
-            <input class="marginright10" type="Date" placeholder="" name="" required>
+            <label class="marginright10">{{start_date}}  </label>
 
             <label class="letranegrita">Duration </label> 
             <input type="Time" placeholder="" name="" required> 
         </div>
         <div class="margintop10">
             <label class="letranegrita">Location </label> 
-            <input class="CreateEvent-middle-locationinput" type="Text" placeholder="" name="" required> 
+            <label class="CreateEvent-middle-locationinput">{{location}} </label>
         </div>
     </div>
     <div class="margintop15">
-        <input class="viewProfile-description" type="Text" placeholder="" name="" required>
+        <label class="viewProfile-description">{{description}}</label>
     </div>  
     <div class="margintop20">
         <img class="marginright20" src="https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg" width="120" height="120">

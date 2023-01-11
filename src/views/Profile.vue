@@ -1,3 +1,28 @@
+<script>
+export default {
+    data() {
+            return {
+            name: "",
+            lastname: "",
+            email: "",
+            image: "",
+            password: "",
+            passconfirm: ""
+            }
+
+        },
+    
+        methods: {
+            signout() {
+                window.localStorage.removeItem("token");
+                window.localStorage.removeItem("loggedIn");
+                location.replace("/");
+            }
+        }
+}
+
+</script>
+
 <template>
     <head>
         <link rel="stylesheet" href="style.css" />
@@ -40,7 +65,7 @@
         <button @click="$router.push('/eventslist')" class="manage-button">Manage my events</button>
     </div>
     <div>  
-        <button @click="$router.push('/')" class="signout-button">SignOut</button>
+        <button @click="signout" class="signout-button">SignOut</button>
     </div>
     <div>
         <button @click="$router.push('/')" class="delete-button">Delete account</button>
