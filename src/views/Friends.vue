@@ -1,3 +1,49 @@
+<script>
+    export default {
+        data() {
+            return {
+                users: [],
+                id: window.localStorage.getItem("userid")
+            }
+        },
+        methods: {
+            sendFriendRequest() {
+                fetch("http://puigmal.salle.url.edu/api/v2/friends/"+ this.id, {
+                    method: "POST",
+                    headers: {
+                        'Authorization' : window.localStorage.getItem("token")
+                    
+                    }
+                }
+                )
+                .then((res)=>res.json())
+                .then((data) => {
+                    if (data.affectedRows = 0) {
+                        alert("Error: No person with that name");
+                    } else {
+                        alert("Request sent succesfully!");
+                    }
+                })
+
+            },
+            pendingRequest() {
+                fetch("http://puigmal.salle.url.edu/api/v2/friends/requests", {
+                    method: "GET",
+                    headers: {
+                        'Autorization' : window.localStorage.getItem("token")
+                    }
+                }
+                .then((res)=>res.json())
+                .then((data)=> {
+                    
+                })
+                )
+            }
+
+        }
+    }
+</script>
+
 <template >
     <head>
         <link rel="stylesheet" href="style.css" />
@@ -76,6 +122,9 @@
                         </div>
                     </div>
                     <br>
+                    <div class = send_req>
+                        <button onclick="pendingRequest()" class = send_button type = "submit"><strong>Pending Request</strong></button>
+                    </div>
                     <div class = send_req>
                         <button class = send_button type = "submit"><strong>Send request</strong></button>
                     </div>
@@ -162,6 +211,7 @@
         font-family: Arial, Helvetica, sans-serif;
         display: flex;
         justify-content: center;
+        padding-bottom: 10px;
         
     }
     .send_button {
