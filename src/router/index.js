@@ -13,12 +13,11 @@ import Statistics from '../views/Statistics.vue'
 import ViewEvent from '../views/ViewEvent.vue'
 import ViewProfile from '../views/ViewProfile.vue'
 
-
 const routes = [
     {
         path: '/signup',
         name: 'signup',
-        component: SignUp
+        component: SignUp,
     },
     {
         path: '/',

@@ -24,7 +24,6 @@ export default {
                     })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     if (data.name){
                         if (password == passconfirm) {
                             location.replace("/");
