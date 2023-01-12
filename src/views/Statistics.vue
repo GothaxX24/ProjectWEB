@@ -1,4 +1,13 @@
 <template>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <div>
+        <RouterLink to = "/profile">
+            <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
+        </RouterLink>
+        
+    </div>
 
     <h1>Statistics</h1>
 
