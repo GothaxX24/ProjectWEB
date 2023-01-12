@@ -1,3 +1,36 @@
+<script>
+    export default {
+            data() {
+                return {
+                    userschats: []
+                }
+
+            },
+            methods: {
+                userchats() {
+                    fetch("http://puigmal.salle.url.edu/api/v2/messages/users" , {
+                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+
+                        this.userschats = data
+                        
+
+                    })
+                    
+                },
+                getUser(index) {
+                    let id = this.userschats[index].id
+                    window.localStorage.setItem("userschats", id);
+            }
+            },
+
+        
+    }
+</script>
+
+
 <template >
         
     <header class ="header_chats">
@@ -12,74 +45,15 @@
                 <label><strong>Your friends: </strong></label>         
             </div>
 
-            <div class = chats_text>
-                <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                <label>User 1</label> 
+            <div v-for = "(user,index) in userschats" class = chats_text>
+                <img class="circular-image" src= {{user.image}} width="30" height="30"/>
+                <label>{{user.name}}</label> 
                 <div class = chats_send>
-                    <button class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
+                    <button v-on:click="getUser(index)" class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
                 </div>
-                <div class = body_chats11>
-                    <label><strong>You have 1 message!</strong></label>
-                </div>
-            </div>
-
-    
-            <div class = chats_text>
-                <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                <label>User 2</label>
-                <div class = chats_send>
-                    <button class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
-                </div>
-            </div>
             
-            <div class = chats_text>
-                <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                <label>User 3</label> 
-                <div class = chats_send>
-                    <button class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
-                </div>
             </div>
-           
-            <div class = chats_text>
-                <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                <label>User 4</label> 
-                <div class = chats_send>
-                    <button class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
-                </div>
-                <div class = body_chats11>
-                    <label><strong>You have 1 message!</strong></label>
-                </div>
-            </div>
-
-            <br>
         
-            <div class = chats_text>
-                <label><strong>Other suggestions:</strong></label> 
-            </div>
-           
-            <div class = chats_text>
-                <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                <label>User 5</label> 
-                <div class = chats_send>
-                    <button class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
-                </div>
-            </div>
-            
-            <div class = chats_text>
-                <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                <label>User 6</label>  
-                <div class = chats_send>
-                    <button class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
-                </div>  
-            </div>
-
-            <div class = chats_text>
-                <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                <label>User 7</label>  
-                <div class = chats_send>
-                    <button class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
-                </div>  
-            </div>
     </div>      
     
 </template>
