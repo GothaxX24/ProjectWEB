@@ -2,12 +2,7 @@
 export default {
     data() {
             return {
-            name: "",
-            lastname: "",
-            email: "",
-            image: "",
-            password: "",
-            passconfirm: ""
+                userimage: ""
             }
 
         },
@@ -17,7 +12,21 @@ export default {
                 window.localStorage.removeItem("token");
                 window.localStorage.removeItem("loggedIn");
                 location.replace("/");
-            }
+            },
+
+            getCreatorUser() {
+                fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid"), {
+                    headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    this.userimage = data[0].image;
+                })
+            },
+        },
+
+        created() {
+            this.getCreatorUser
         }
 }
 
@@ -31,7 +40,7 @@ export default {
         <RouterLink to = "/eventslist">
             <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
         </RouterLink>
-        <img class="profile-pic" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/> 
+        <img class="profile-pic" v-bind:src=userimage /> 
     </div>
 
     <h2>My profile</h2>

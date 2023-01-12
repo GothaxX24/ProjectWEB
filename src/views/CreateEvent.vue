@@ -44,6 +44,15 @@
                                 alert('Missing information');
                             }
                         })
+                    },
+
+                    fileToImage(archivo) {
+                        const file = archivo.currentTarget.files[0];
+
+                        currentImg = URL.createObjectURL(file);
+                        eventimage = new Image();
+
+                        eventimage.src = currentImg;
                     }
 
                 },
@@ -116,7 +125,7 @@
                 <label class="letranegrita">Main event image</label>
             </div>
             <div class="CreateEvent-middle-centraimg">
-                <img class="margintop10" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg" width="90" height="90"/>
+                <input  class="margintop10" type="file" onchange = "fileToImage(event)">
             </div>
             <div class="CreateEvent-middle-description">
                 <label class="letranegrita">Description</label>

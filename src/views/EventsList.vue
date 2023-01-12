@@ -19,10 +19,9 @@
                     })
                     .then((res) => res.json())
                     .then((data) => {
-                        //for (let i=0; i<data.length;i++) {
                             this.events = data;
-                            this.getRightDate;
                             for (let i=0; i<data.length;i++) {
+                                this.getRightDate(i);
                                 fetch("http://puigmal.salle.url.edu/api/v2/users/" + this.events[i].owner_id, {
                                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                                 })
@@ -32,7 +31,6 @@
                                         this.image[i] = data[0].image;
                                 })
                             }
-                        //}
                     })
                 }, 
 
@@ -43,9 +41,8 @@
                     window.localStorage.setItem("currenteventowner", userid);
                 },
 
-                getRightDate() {
-                    console.log(this.events)
-                    this.events[0].eventStart_date.substring(0, 9) = this.correctDate[0];
+                getRightDate(i) {
+                    this.correctDate[i] = this.events[i].eventStart_date.substring(0, 10)
                 },
 
                 eventlistByName(searchlocation, searchdate, searchkeyword) {

@@ -41,7 +41,7 @@
                 },
 
                 assistevent() {
-                    fetch("http://puigmal.salle.url.edu/api/v2/events/" + window.localStorage.getItem("eventid")  + "/assistances", {
+                    fetch("http://puigmal.salle.url.edu/api/v2/assistances/" + window.localStorage.getItem("userid") + + window.localStorage.getItem("eventid"), {
                         method: "POST",
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                     })
