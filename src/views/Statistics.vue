@@ -1,38 +1,82 @@
+<script>
+    export default {
+        data() {
+                return {
+                avgscore: "",
+                numcomments: "",
+                percentage: "",
+                username: "",
+                userimage: ""
+                }
+
+            },
+            methods: {
+                statistics () {
+                    fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid") + "/statistics", {
+                            headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                        })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            this.avgscore =  data[0].avg_score;
+                            this.numcomments = data[0].num_comments;
+                            this.percentage = data[0].percentage_commenters_below;
+                        })
+                },
+
+                getCreatorUser() {
+                    fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid"), {
+                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        this.username = data[0].name + " " + data[0].last_name;
+                        this.userimage = data[0].image;
+                    })
+                },
+            },
+
+            created() {
+                    this.statistics()
+                    this.getCreatorUser()
+            }
+    }
+
+
+</script>
+
 <template>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <div>
+        <RouterLink to = "/profile">
+            <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
+        </RouterLink>
+        <img class="profile-pic" v-bind:src=userimage> 
+    </div>
 
     <h1>Statistics</h1>
 
     <div class="foto">
         <article class="articl">
-            <img class="foto-perfil" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/>
+            <img class="foto-perfil" v-bind:src=userimage />
         </article>
         <article class="articl">
             <h3>"Average puntuation"</h3>
-            <form>
-            <p class="clasificacion">
-                <input id="radio1" type="radio" name="estrellas" value="5"><!--
-                --><label for="radio1">★</label><!--
-                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-                --><label for="radio2">★</label><!--
-                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-                --><label for="radio3">★</label><!--
-                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-                --><label for="radio4">★</label><!--
-                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-                --><label for="radio5">★</label>
-            </p>
-        </form>
+            <label v-if="avgscore">{{avgscore}}</label>
+            <label v-else>No punctuation yet</label>
         </article>
     </div>
 
     <div>
         <h4>Number of comments</h4>
 
-        <h3>X</h3>
+        <h3>{{numcomments}}</h3>
     </div>
 
     <div>
-        <h3>"User" is in the top "x"% of users with more number of comments! </h3>
+        <h3 v-if="percentage">"{{ username }}" is in the top "{{percentage}}"% of users with more number of comments! </h3>
+        <h3 v-else>"{{ username }}" Has never commented yet</h3>
     </div>
 
 </template>

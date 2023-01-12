@@ -19,8 +19,7 @@
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                     })
                     .then((res) => res.json())
-                    .then((data) => {
-                        console.log(data);
+                    .then((data) => { 
                         this.name = data[0].name;
                         this.date = data[0].date;
                         this.image = data[0].image;
@@ -28,7 +27,6 @@
                         this.description = data[0].description;
                         this.start_date = data[0].eventStart_date
                         this.end_date = data[0].eventEnd_date
-                        console.log(this.name);
 
                         fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("currenteventowner"), {
                                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -40,6 +38,17 @@
 
                     })
                     
+                },
+
+                assistevent() {
+                    fetch("http://puigmal.salle.url.edu/api/v2/events/" + window.localStorage.getItem("eventid")  + "/assistances", {
+                        method: "POST",
+                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        location.replace("/eventslist");
+                    })
                 }
 
             
@@ -87,7 +96,7 @@
     </div>
     <div class = "viewProfile-bottom" >
         <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDsKvKUVOqbJsF5oD4KXaBa_hoEBiYLQrY1A&usqp=CAU" width="30" height="30">
-        <button class="viewProfile-bottom-attendbutton"><strong>Attend</strong></button>
+        <button @click="assistevent" class="viewProfile-bottom-attendbutton"><strong>Attend</strong></button>
         <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrYlFVRZ9D13i-_PIRiotOBfMVbraV4dFPw&usqp=CAU" width="30" height="30">
     </div>
     <form>
