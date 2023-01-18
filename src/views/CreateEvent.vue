@@ -12,6 +12,8 @@
                         eventtype: "",
                         eventstart: "",
                         eventend: "",
+                        latitude: "",
+                        longitude: ""
                     }
 
                 },
@@ -30,15 +32,15 @@
                     postEvent(eventname, eventimage, eventlocation, eventdescription, eventparticipants, eventtype, eventstart, eventend) {
                         fetch("http://puigmal.salle.url.edu/api/v2/events", {
                             method: "POST",
-                            headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")},
-                            body: JSON.stringify({ name: this.eventname, image: this.eventimage, location: this.eventlocation, description: this.eventdescription, n_participators: this.eventparticipants,
-                                                type: this.eventtype, eventStart_date: this.eventstart, eventEnd_date: this.eventend 
+                            headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token"), "Content-Type": "application/json"},
+                            body: JSON.stringify({ name: this.eventname, image: this.eventimage, location: this.eventlocation, latitude: this.latitude, longitude: this.longitude, description: this.eventdescription, eventStart_date: this.eventstart, 
+                                                eventEnd_date: this.eventend,  n_participators: this.eventparticipants, type: this.eventtype
                             }), 
                         })
                         .then((res) => res.json())
                         .then((data) => {
                             if (data.name) {
-                                location.replace("/eventslist");
+                               location.replace("/eventslist");
                             }
                             else {
                                 alert('Missing information');
@@ -46,15 +48,10 @@
                         })
                     },
 
-                    fileToImage(archivo) {
-                        const file = archivo.currentTarget.files[0];
-
-                        currentImg = URL.createObjectURL(file);
-                        eventimage = new Image();
-
-                        eventimage.src = currentImg;
-                    }
-
+                    /*modificarDate() {
+                        this.eventstart = this.eventstart + ":00.000Z"
+                        this.eventend = this.eventend + ":00.000Z"
+                    }*/
                 },
 
                 created() {
@@ -125,7 +122,7 @@
                 <label class="letranegrita">Main event image</label>
             </div>
             <div class="CreateEvent-middle-centraimg">
-                <input  class="margintop10" type="file" onchange = "fileToImage(event)">
+                <input  v-model="eventimage" class="margintop10" type="text" placeholder="" name="" required>
             </div>
             <div class="CreateEvent-middle-description">
                 <label class="letranegrita">Description</label>
@@ -141,6 +138,14 @@
                 <label class="letranegrita">Max. Participants </label>
                 <input v-model="eventparticipants" class="CreateEvent-middle-partinput" type="number" placeholder="" name="" required> 
             </div>
+            <div class="margintop10">
+                <label class="letranegrita">Latitude </label>
+                <input v-model="latitude" class="CreateEvent-middle-partinput" type="number" placeholder="" name="" required> 
+            </div>
+            <div class="margintop10">
+                <label class="letranegrita">Longitude </label>
+                <input v-model="longitude" class="CreateEvent-middle-partinput" type="number" placeholder="" name="" required> 
+            </div>
             <div class="CreateEvent-middle-additionalimages">
                 <label class="letranegrita">Additional images</label>
                 <label> (Optional)</label>
@@ -152,7 +157,7 @@
                 <img src="http://cdn.onlinewebfonts.com/svg/img_28512.png" width="60" height="60">
             </div>
             <div class="margintop30">
-                <button class="alignright" @click="postEvent({eventname, eventimage, eventlocation, eventdescription, eventparticipants, eventtype, eventstart, eventend})" type="button">Create Event</button>
+                <button class="alignright" @click="postEvent({eventname, eventimage, eventlocation, latitude, longitude, eventdescription, eventstart, eventend, eventparticipants, eventtype})" type="button">Create Event</button>
             </div>
 
         </div>

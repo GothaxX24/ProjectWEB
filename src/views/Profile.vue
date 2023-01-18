@@ -11,6 +11,7 @@ export default {
             signout() {
                 window.localStorage.removeItem("token");
                 window.localStorage.removeItem("loggedIn");
+                window.localStorage.removeItem("userid");
                 location.replace("/");
             },
 
@@ -20,13 +21,14 @@ export default {
                 })
                 .then((res) => res.json())
                 .then((data) => {
+                    console.log(data);
                     this.userimage = data[0].image;
                 })
             },
         },
 
         created() {
-            this.getCreatorUser
+            this.getCreatorUser()
         }
 }
 

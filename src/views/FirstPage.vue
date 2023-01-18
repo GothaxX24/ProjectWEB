@@ -29,12 +29,11 @@ export default {
                             .then((res) => res.json())
                             .then((data) => {
                                 window.localStorage.setItem("userid", data[0].id);
-                            })
-
-                            location.replace("/eventslist");
+                                location.replace("/eventslist")
+                            })  
                         } else {
                             alert("Error: wrong email or password");
-                        }
+                        }                       
                         });
             },
 
