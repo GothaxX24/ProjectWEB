@@ -9,7 +9,8 @@
                 description: "",
                 start_date: "",
                 end_date: "",
-                userimage: ""
+                userimage: "",
+                correctDate: ""
                 }
 
             },
@@ -26,7 +27,8 @@
                         this.location = data[0].location;
                         this.description = data[0].description;
                         this.start_date = data[0].eventStart_date
-                        this.end_date = data[0].eventEnd_date
+                        this.end_date = data[0].eventEnd_date;
+                        this.correctDate = data[0].eventStart_date.substring(0, 10);
 
                         fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("currenteventowner"), {
                                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -41,15 +43,16 @@
                 },
 
                 assistevent() {
-                    fetch("http://puigmal.salle.url.edu/api/v2/assistances/" + window.localStorage.getItem("userid") + + window.localStorage.getItem("eventid"), {
+                    fetch("http://puigmal.salle.url.edu/api/v2/assistances/" + window.localStorage.getItem("userid") + window.localStorage.getItem("eventid"), {
                         method: "POST",
-                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token"), "Content-Type": "application/json"}
                     })
                     .then((res) => res.json())
                     .then((data) => {
                         location.replace("/eventslist");
                     })
-                }
+                },
+
 
             
             },
@@ -77,7 +80,7 @@
     <div>
         <div class="margintop10">
             <label class="letranegrita">Date </label> 
-            <label class="marginright10">{{start_date}}  </label>
+            <label class="marginright10">{{correctDate}}  </label>
 
             <label class="letranegrita">Duration </label> 
             <input type="Time" placeholder="" name="" required> 

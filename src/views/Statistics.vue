@@ -52,7 +52,6 @@
         <RouterLink to = "/profile">
             <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
         </RouterLink>
-        <img class="profile-pic" v-bind:src=userimage> 
     </div>
 
     <h1>Statistics</h1>

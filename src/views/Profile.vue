@@ -73,7 +73,7 @@ export default {
     </div>
 
     <div>
-        <button @click="$router.push('/eventslist')" class="manage-button">Manage my events</button>
+        <button @click="$router.push('/myevents')" class="manage-button">Manage my events</button>
     </div>
     <div>  
         <button @click="signout" class="signout-button">SignOut</button>

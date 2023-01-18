@@ -14,7 +14,7 @@
             },
             methods: {
                 eventslist() {
-                    fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid") + "/assistances/finished", {
+                    fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid") + "/events/finished", {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                     })
                     .then((res) => res.json())
@@ -68,7 +68,7 @@
             </RouterLink>
         </div>
         <div id="eventlist">
-            <h1>EVENTS HISTORY</h1>
+            <h1>MY PAST EVENTS</h1>
 
 
             <div >
@@ -104,7 +104,6 @@
                             <label class="EventList-bottom-date">{{correctDate[index]}}</label>
                             <label class="EventList-bottom-street">{{evento.location}}</label>
                         </div>
-                        <button class="EventList-bottom-street" @click="$router.push('/createevent')">Comment event</button>
                     </div>
                 </div>
             </div>
