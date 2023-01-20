@@ -13,6 +13,7 @@ import Statistics from '../views/Statistics.vue'
 import ViewEvent from '../views/ViewEvent.vue'
 import ViewProfile from '../views/ViewProfile.vue'
 import MyEvents from '../views/MyEvents.vue'
+import AddCommentary from '../views/AddCommentary.vue'
 
 const routes = [
     {
@@ -84,6 +85,11 @@ const routes = [
         path: '/myevents',
         name: 'myevents',
         component: MyEvents,
+    },
+    {
+        path: '/addcomentary',
+        name: 'addcomentary',
+        component: AddCommentary,
     },
     
 ]

@@ -25,6 +25,21 @@ export default {
                     this.userimage = data[0].image;
                 })
             },
+
+            deleteUser () {
+                fetch("http://puigmal.salle.url.edu/api/v2/users" , {
+                    headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                })
+                .then((res) => res.json())
+                .then((data) => {
+
+                })
+            },
+
+            removeLogDelete() {
+                window.localStorage.removeItem("loggedIn");
+                window.localStorage.removeItem("userid");
+            }
         },
 
         created() {
@@ -79,7 +94,9 @@ export default {
         <button @click="signout" class="signout-button">SignOut</button>
     </div>
     <div>
-        <button @click="$router.push('/')" class="delete-button">Delete account</button>
+        <RouterLink to = "/" v-on:click="removeLogDelete">
+            <button @click="deleteUser" class="delete-button">Delete account</button>
+        </RouterLink>
     </div>
 
  

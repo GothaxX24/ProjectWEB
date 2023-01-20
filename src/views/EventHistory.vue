@@ -6,9 +6,6 @@
                     correctDate: [],
                     username: [],
                     image: [],
-                    searchdate: "",
-                    searchkeyword: "",
-                    searchlocation: ""
                 }
 
             },
@@ -74,9 +71,7 @@
             <div >
                 <div class="EventsList-bottom" v-for="(evento, index) in events">
                     <div>
-                        <RouterLink to = "/viewevent" v-on:click="getEventID(index)">
-                            <img class="EventList-eventimg" v-bind:src=evento.image width="75" height = "75">
-                        </RouterLink>  
+                        <img class="EventList-eventimg" v-bind:src=evento.image width="75" height = "75">
                     </div>
                     <div>
                         <div class="EventsList-bottom-flex">
@@ -104,7 +99,9 @@
                             <label class="EventList-bottom-date">{{correctDate[index]}}</label>
                             <label class="EventList-bottom-street">{{evento.location}}</label>
                         </div>
-                        <button class="EventList-bottom-street" @click="$router.push('/createevent')">Comment event</button>
+                        <RouterLink to = "/addcomentary" v-on:click="getEventID(index)">
+                            <button class="EventList-bottom-street">Comment event</button>
+                        </RouterLink>
                     </div>
                 </div>
             </div>
