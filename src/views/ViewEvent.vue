@@ -43,13 +43,13 @@
                 },
 
                 assistevent() {
-                    fetch("http://puigmal.salle.url.edu/api/v2/assistances/" + window.localStorage.getItem("userid") + window.localStorage.getItem("eventid"), {
+                    fetch("http://puigmal.salle.url.edu/api/v2/assistances/" + window.localStorage.getItem("userid") + "/" + window.localStorage.getItem("eventid"), {
                         method: "POST",
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token"), "Content-Type": "application/json"}
                     })
                     .then((res) => res.json())
                     .then((data) => {
-                        location.replace("/eventslist");
+
                     })
                 },
 
@@ -99,7 +99,9 @@
     </div>
     <div class = "viewProfile-bottom" >
         <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDsKvKUVOqbJsF5oD4KXaBa_hoEBiYLQrY1A&usqp=CAU" width="30" height="30">
-        <button @click="assistevent" class="viewProfile-bottom-attendbutton"><strong>Attend</strong></button>
+        <RouterLink to = "/eventslist">
+            <button @click="assistevent" class="viewProfile-bottom-attendbutton"><strong>Attend</strong></button>
+        </RouterLink>
         <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrYlFVRZ9D13i-_PIRiotOBfMVbraV4dFPw&usqp=CAU" width="30" height="30">
     </div>
     <form>
