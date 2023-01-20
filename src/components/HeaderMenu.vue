@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
     <head>
         <link rel="stylesheet" href="style.css" />
@@ -21,7 +24,7 @@
                 <img class="iconos-menu" src="https://cdn-icons-png.flaticon.com/512/32/32339.png">
                 <a>Create event</a>
             </RouterLink> 
-            
+    
         </div>
     </div>
 </template>

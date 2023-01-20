@@ -55,7 +55,7 @@ export default {
     </head>
     <div>
         <RouterLink to = "/eventslist">
-            <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
+            <img class="back" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/2048px-Back_Arrow.svg.png">
         </RouterLink>
         <img class="profile-pic" v-bind:src=userimage /> 
     </div>
