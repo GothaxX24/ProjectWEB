@@ -11,6 +11,7 @@
             }
         },
         methods: {
+            //Mètode per fer el fetch que ens permet agafar la informació d'un usuari.
             viewEvent() {
                 
                 fetch("http://puigmal.salle.url.edu/api/v2/users/"+ window.localStorage.getItem("friendid"), {
@@ -26,6 +27,7 @@
                     this.image = data[0].image;
                 })
             },
+            //Mètode per fer el fetch que retorna els esdeveniments als quals un usuari ha participat o participarà.
             friendEvents() {
                 fetch("http://puigmal.salle.url.edu/api/v2/users/"+ window.localStorage.getItem("friendid")+ "/assistances", {
                     headers: {
@@ -39,6 +41,7 @@
                 })
             }
         },
+        //Funció que s'executa quan s'obre aquest vue.
         created() {
             this.viewEvent();
             this.friendEvents()

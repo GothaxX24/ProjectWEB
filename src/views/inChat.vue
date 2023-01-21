@@ -11,6 +11,7 @@
             }
         },
         methods: {
+            //Mètode per fer el fetch que carrega les dades de l'usuari amb el que s'està parlant.
             loadinfo() {
                 
                 fetch("http://puigmal.salle.url.edu/api/v2/users/"+ window.localStorage.getItem("userschats"), {
@@ -26,6 +27,7 @@
                     this.image = data[0].image;
                 })
             },
+            //Mètode per realitzar el fetch que permet enviar missatges al chat.
             sendmsg() {
                 fetch("http://puigmal.salle.url.edu/api/v2/messages", {
                     method: "POST",
@@ -44,7 +46,7 @@
                 })
             },
 
-            
+            //Mètode per realitzar el fetch que retorna els missatges del chat.
             loadmessages() {
 
                 fetch("http://puigmal.salle.url.edu/api/v2/messages/"+ window.localStorage.getItem("userschats"), {
@@ -61,6 +63,7 @@
                 })
             }
         },
+        //Funció que s'executa quan s'entra en aquest
         created() {
             this.loadmessages();   
             this.loadinfo(); 
