@@ -6,7 +6,6 @@ import CreateEvent from '../views/CreateEvent.vue'
 import EventHistory from '../views/EventHistory.vue'
 import EventsList from '../views/EventsList.vue'
 import Friends from '../views/Friends.vue'
-import Homepage from '../views/Homepage.vue'
 import inChat from '../views/inChat.vue'
 import Profile from '../views/Profile.vue'
 import Statistics from '../views/Statistics.vue'
@@ -50,11 +49,6 @@ const routes = [
         path: '/friends',
         name: 'friends',
         component: Friends,
-    },
-    {
-        path: '/homepage',
-        name: 'homepage',
-        component: Homepage,
     },
     {
         path: '/inchat',

@@ -8,16 +8,16 @@
             }
         },
         methods: {
-            searchuser(request_name) {
+            searchuser() {
                 fetch ('http://puigmal.salle.url.edu/api/v2/users/search?s=' + this.request_name ,{
                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
-                    console.log(data[0].name + " - " + this.request_name);
+                    
+                    
                     if (data[0].name === this.request_name || data[0].email === this.request_name) {
-                        window.localStorage.setItem("userid" ,data[0].id);
+                        window.localStorage.setItem("friendid" ,data[0].id);
                         this.sendFriendRequest();
 
                     } else {
@@ -27,7 +27,7 @@
                 })
             },
             sendFriendRequest() {
-                fetch("http://puigmal.salle.url.edu/api/v2/friends/"+ window.localStorage.getItem("userid"), {
+                fetch("http://puigmal.salle.url.edu/api/v2/friends/"+ window.localStorage.getItem("friendid"), {
                     method: "POST",
                     headers: {
                         'Authorization' : 'Bearer ' + window.localStorage.getItem("token")
@@ -126,32 +126,15 @@
     }
 </script>
 
+<script setup>
+    import HeaderMenu from '../components/HeaderMenu.vue';
+</script>
+
 <template >
     <head>
         <link rel="stylesheet" href="style.css" />
     </head>
-    <div class="menu">
-        <img class="icono-menu" src=/>
-        <div class="menulinks">
-            <RouterLink to="/profile">
-                <img class="iconos-menu" src="https://static.thenounproject.com/png/638636-200.png">
-                <a>Profile </a>      
-            </RouterLink>
-            <RouterLink to="/friends">
-                <img class="iconos-menu" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-                <a>Friends</a>
-            </RouterLink>
-            <RouterLink to="/eventslist">
-                <img class="iconos-menu" src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png">
-                <a>Search event</a>
-            </RouterLink>    
-            <RouterLink to="/createevent">
-                <img class="iconos-menu" src="https://cdn-icons-png.flaticon.com/512/32/32339.png">
-                <a>Create event</a>
-            </RouterLink> 
-            
-        </div>
-    </div>
+    <HeaderMenu />
             <header class ="header_friends">
                 
                 <h1>Friends</h1>

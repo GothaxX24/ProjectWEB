@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <div class="menu">
-        <img class="icono-menu" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/>
+        <img class="icono-menu" src="https://cdn.icon-icons.com/icons2/903/PNG/512/menu_icon-icons.com_69502.png"/>
         <div class="menulinks">
             <ProfileEmit v-on:send="goProfile" />
             <RouterLink to="/friends">
