@@ -1,5 +1,7 @@
 <script>
 
+//import UserLog from '../singletone/userlog.js'
+
 export default {
         data() {
             return {
@@ -34,6 +36,7 @@ export default {
                             .then((res) => res.json())
                             .then((data) => {
                                 window.localStorage.setItem("userid", data[0].id);
+                                //this.UserLog = new UserLog(data[0],id, data.accessToken)
                                 location.replace("/eventslist")
                             })  
                         } else {
