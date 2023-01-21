@@ -35,7 +35,7 @@
                 .then((res)=> res.json())
                 .then((data) => {
                     this.friend_events = data;
-                    console.log(this.friend_events)
+                    console.log(data)
                 })
             }
         },
@@ -64,9 +64,52 @@
         Recent events
     </h3>
 
-    <div id="recent-events" v-if="friend_events.length > 0">
-        <img v-for="(event,index) in friend_events" class="imgevent" :src="event.image">
-        
+ 
+
+    <div class="alls">
+        <div v-if="friend_events.length > 0">
+            <div class="EventsList-bottom" v-for="(evento, index) in friend_events">
+                <div>
+                    <img class="EventList-eventimg" v-bind:src=evento.image width="75" height = "75">
+                </div>
+                <div>
+                    <div class="EventsList-bottom-flex">
+                        <label class="EventsList-bottom-eventname">{{evento.name}}</label>
+                        <img v-bind:src=evento.image width="45" height="45"/>
+                        <div class="EventList-bottom-flex2">
+                            <form>
+                                <div class="clasificacion">
+                                    <input id="radio1" type="radio" name="estrellas" value="5">
+                                    <label for="radio1">★</label>
+                                    <input id="radio2" type="radio" name="estrellas" value="4">
+                                    <label for="radio2">★</label>
+                                    <input id="radio3" type="radio" name="estrellas" value="3">
+                                    <label for="radio3">★</label>
+                                    <input id="radio4" type="radio" name="estrellas" value="2">
+                                    <label for="radio4">★</label>
+                                    <input id="radio5" type="radio" name="estrellas" value="1">
+                                    <label for="radio5">★</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div >
+                        <label class="EventList-bottom-date">{{evento.date}}</label>
+                        <label class="EventList-bottom-street">{{evento.location}}</label>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <div v-else> NO EVENTS</div>
+    
 </template>
+
+<style>
+.alls{
+    display:flex;
+    justify-content: center;
+}
+
+
+</style>

@@ -8,7 +8,7 @@
             }
         },
         methods: {
-            searchuser(request_name) {
+            searchuser() {
                 fetch ('http://puigmal.salle.url.edu/api/v2/users/search?s=' + this.request_name ,{
                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                 })
@@ -17,7 +17,7 @@
                     
                     
                     if (data[0].name === this.request_name || data[0].email === this.request_name) {
-                        window.localStorage.setItem("userid" ,data[0].id);
+                        window.localStorage.setItem("friendid" ,data[0].id);
                         this.sendFriendRequest();
 
                     } else {
@@ -27,7 +27,7 @@
                 })
             },
             sendFriendRequest() {
-                fetch("http://puigmal.salle.url.edu/api/v2/friends/"+ window.localStorage.getItem("userid"), {
+                fetch("http://puigmal.salle.url.edu/api/v2/friends/"+ window.localStorage.getItem("friendid"), {
                     method: "POST",
                     headers: {
                         'Authorization' : 'Bearer ' + window.localStorage.getItem("token")
