@@ -1,4 +1,21 @@
-<script setup>
+<script>
+    import ProfileEmit from "./ProfileEmit.vue";
+    export default {
+        components: { ProfileEmit },
+
+        methods: {
+            goProfile() {
+                location.replace('/profile')
+            },
+        },
+    }
+
+
+/*<RouterLink to="/profile">
+    <img class="iconos-menu" src="https://static.thenounproject.com/png/638636-200.png">
+    <a>Profile </a>      
+</RouterLink>*/
+
 </script>
 
 <template>
@@ -8,10 +25,7 @@
     <div class="menu">
         <img class="icono-menu" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/>
         <div class="menulinks">
-            <RouterLink to="/profile">
-                <img class="iconos-menu" src="https://static.thenounproject.com/png/638636-200.png">
-                <a>Profile </a>      
-            </RouterLink>
+            <ProfileEmit v-on:send="goProfile" />
             <RouterLink to="/friends">
                 <img class="iconos-menu" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
                 <a>Friends</a>
