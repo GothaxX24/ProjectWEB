@@ -14,8 +14,8 @@
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
-                    console.log(data[0].name + " - " + this.request_name);
+                    
+                    
                     if (data[0].name === this.request_name || data[0].email === this.request_name) {
                         window.localStorage.setItem("userid" ,data[0].id);
                         this.sendFriendRequest();

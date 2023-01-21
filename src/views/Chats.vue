@@ -2,11 +2,27 @@
     export default {
             data() {
                 return {
-                    userschats: []
+                    userschats: [],
+                    user_friends: []
                 }
 
             },
             methods: {
+                showFriends() {
+                    fetch("http://puigmal.salle.url.edu/api/v2/friends/", {
+                        method: "GET",
+                        headers: {
+                            'Authorization' : 'Bearer ' + window.localStorage.getItem("token")
+                        
+                        }
+                    }
+                    )
+                    .then((res)=>res.json())
+                    .then((data) => {
+                        this.user_friends = data;
+                        console.log(this.user_friends)
+                    })
+                },
                 userchats() {
                     fetch("http://puigmal.salle.url.edu/api/v2/messages/users" , {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -21,10 +37,20 @@
                     
                 },
                 getUser(index) {
+                    
                     let id = this.userschats[index].id
                     window.localStorage.setItem("userschats", id);
-            }
+                },
+                getFriendID(index) {
+                    let id = this.user_friends[index].id;
+                    window.localStorage.setItem("userschats", id);
+                }
             },
+
+            created() {
+                this.showFriends();
+                this.userchats();
+            }
 
         
     }
@@ -42,14 +68,27 @@
     <div class = chats_body> 
               
             <div class = chats_text>
-                <label><strong>Your friends: </strong></label>         
+                <label><strong>Your Chats: </strong></label>         
             </div>
 
             <div v-for = "(user,index) in userschats" class = chats_text>
-                <img class="circular-image" src= {{user.image}} width="30" height="30"/>
+                <img class="circular-image" :src= user.image width="30" height="30"/>
                 <label>{{user.name}}</label> 
                 <div class = chats_send>
                     <button v-on:click="getUser(index)" class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
+                </div>
+            
+            </div>
+            <br>
+            <div class = chats_text>
+                <label><strong>Your friends: </strong></label>    
+            </div>
+            
+            <div v-for = "(friend,index) in user_friends" class = chats_text>
+                <img class="circular-image" :src= friend.image width="30" height="30"/>
+                <label>{{friend.name}}</label> 
+                <div class = chats_send>
+                    <button v-on:click="getFriendID(index)" class= "chats_send" @click="$router.push('/inChat')" type="button"><strong>Send message</strong></button>
                 </div>
             
             </div>
@@ -83,13 +122,16 @@ background-color: turquoise;
 font-family : Arial, Helvetica, sans-serif;
 display: flex;
 flex-direction: row;
+align-items: center;
+
 width: 100%;
 max-width: 600px;
 }
 
 
 .chats_send{
-    
+    border-radius: 1px;
+    border-color: #010303;
     font-size: "2";
     color: rgb(255, 255, 255);
     text-shadow: 0 0 3px #010303;

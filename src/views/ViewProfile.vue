@@ -58,19 +58,7 @@
 
     <h2>{{this.name}} {{this.surname}}</h2>
 
-    <div class="separacioImatges"> 
-        <RouterLink to = "/friends">
-            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        </RouterLink>
-
-        <RouterLink to="/statistics">
-            <img class="pequeña" src="https://cdn0.iconfinder.com/data/icons/glyphpack/63/statistics-512.png">
-        </RouterLink>
-
-        <RouterLink to="/eventhistory">
-            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/32/32223.png">
-        </RouterLink> 
-    </div>
+    
 
     <h3>
         Recent events
