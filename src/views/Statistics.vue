@@ -11,6 +11,8 @@
 
             },
             methods: {
+                // Metode que realitza u fetch que retorna les estadistiques del usuari que fiquem al path (en aquest cas el nostre)
+                // Es crida a aquest metode al entrar a la pagina (created).
                 statistics () {
                     fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid") + "/statistics", {
                             headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -23,6 +25,8 @@
                         })
                 },
 
+                // Metode que realitza un fetch per rebre les dades d'un usuari en concret (en aquest cas nosaltres).
+                // Es crida a aquest metode al entrar a la pagina (created).
                 getCreatorUser() {
                     fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid"), {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}

@@ -3,4 +3,6 @@ import './style.css'
 import App from './App.vue'
 import router from "./router/index.js";
 
+//import UserLog from './singletone/userlog.js'
+
 createApp(App).use(router).mount('#app')

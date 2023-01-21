@@ -17,6 +17,8 @@
 
             },
             methods: {
+                // Metode per realitzar el fetch que que retorna les dades d'un unic Event (el que s'ha picat a la pantalla anterior).
+                // Es crida a aquest metode al entrar a la pagina (created).
                 event() {
                     fetch("http://puigmal.salle.url.edu/api/v2/events/" + window.localStorage.getItem("eventid"), {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -31,7 +33,9 @@
                         this.start_date = data[0].eventStart_date
                         this.end_date = data[0].eventEnd_date;
                         this.correctDate = data[0].eventStart_date.substring(0, 10);
-
+                        
+                        // Dins del mateix fetch en fem un altre per a part de rebre les dades del Event, ens retorni tambe les del usuari que l'ha creat,
+                        // ja que necessitem la seva imatge.
                         fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("currenteventowner"), {
                                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                                 })
@@ -43,17 +47,30 @@
                     })
                     
                 },
-
+                
+                // Metode per afegir un comentari al Event (cal esmentar que a aquesta pantalla nomes arribem desde un event al que haguem assistit i ja haigi acabat).
+                // Si no agefeixen comentary o donen una puntuació incorrecta no es realitza el fetch.
+                // Es crida a aquest metode al picar el boto de "Send".
                 fetchcomentary(comentary, puntuation) {
-                    fetch("http://puigmal.salle.url.edu/api/v2//assistances/" + window.localStorage.getItem("userid")  + "/" + window.localStorage.getItem("eventid"), {
-                        method: "PUT",
-                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token"), "Content-Type": "application/json"},
-                        body: JSON.stringify({ puntuation: this.puntuation, comentary: this.comentary }),
-                    })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        
-                    })
+                    if (!this.comentary) { 
+                        alert('Fill up the comentary section')
+                    } else {
+                        if (this.puntuation > 10 || this.putuation < 0 || !this.puntuation) {
+                            alert('Give a right puntuation');
+                        } else {
+                            fetch("http://puigmal.salle.url.edu/api/v2//assistances/" + window.localStorage.getItem("userid")  + "/" + window.localStorage.getItem("eventid"), {
+                                method: "PUT",
+                                headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token"), "Content-Type": "application/json"},
+                                body: JSON.stringify({ puntuation: this.puntuation, comentary: this.comentary }),
+                            })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                
+                            })
+
+                            location.replace("/eventhistory");
+                        }
+                    }
                 }
             
             },
@@ -101,14 +118,10 @@
         </div>
     </div>
     <div class="margintop10">
-                <label class="letranegrita">Puntuation (0 to 10)</label>
-                <input v-model="puntuation" class="CreateEvent-middle-partinput" type="number" placeholder="" name="" required> 
-            </div>
-    <RouterLink to = "/eventhistory">
+        <label class="letranegrita">Puntuation (0 to 10)</label>
+        <input v-model="puntuation" class="CreateEvent-middle-partinput" type="number" placeholder="" name="" required> 
+    </div>
     <button @click="fetchcomentary({comentary, puntuation})" class="viewProfile-bottom-attendbutton"><strong>Send</strong></button>
-    </RouterLink>
-        
-    
 </template>
 
 

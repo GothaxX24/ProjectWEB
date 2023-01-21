@@ -1,5 +1,7 @@
 <script>
 
+//import UserLog from '../singletone/userlog.js'
+
 export default {
         data() {
             return {
@@ -10,6 +12,11 @@ export default {
         },
     
         methods: {
+            // Metode que realitza un fetch de tipus "Post" per fer login a la aplicació. Dins del fetch emagatzemem dins de la localstorage el token del usuari que
+            // inicia sesió i una variable que anomenem loggedIn que servira per entrar directament a la conta del usuari si aquests no fa logOut.
+            // Dins del primer fetch en realitzem un altre que busqui dins la API el usuari amb el email que inici de sessió (amb l'email ens assegurem que 
+            // la crida nomes ens retorna un usuari) i guardem la seva id fins que l'usuari faigi logOut.
+            // Es crida al picar el boto de "Log in"
             login() {
                 fetch("http://puigmal.salle.url.edu/api/v2/users/login", {
                         method: "POST",
@@ -29,6 +36,7 @@ export default {
                             .then((res) => res.json())
                             .then((data) => {
                                 window.localStorage.setItem("userid", data[0].id);
+                                //this.UserLog = new UserLog(data[0],id, data.accessToken)
                                 location.replace("/eventslist")
                             })  
                         } else {
@@ -37,6 +45,8 @@ export default {
                         });
             },
 
+            // Metode que en cas de tindre la "loogedIn" a la localstorage entra directament a la aplicació sense necessitat d'iniciar sessió
+            // Es crida a aquest metode al entrar a la pagina (created).
             isLooged() {
                 if (window.localStorage.getItem("loggedIn")) {
                     location.replace("/eventslist");

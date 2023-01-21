@@ -13,13 +13,14 @@
 
             },
             methods: {
+                // Metode que realitza un fetch que retorna tots els events que hagi creat l'usuari que li fiquem al path (en aquest cas el nostre usuari) 
+                // Es crida a aquest metode al entrar a la pagina (created).
                 eventslist() {
                     fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid") + "/events/finished", {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                     })
                     .then((res) => res.json())
                     .then((data) => {
-                            console.log(data)
                             this.events = data;
                             for (let i=0; i<data.length;i++) {
                                 this.getRightDate(i);
@@ -34,13 +35,6 @@
                             }
                     })
                 }, 
-
-                getEventID(index) {
-                    let id = this.events[index].id
-                    let userid = this.events[index].owner_id
-                    window.localStorage.setItem("eventid", id);
-                    window.localStorage.setItem("currenteventowner", userid);
-                },
 
                 getRightDate(i) {
                     this.correctDate[i] = this.events[i].eventStart_date.substring(0, 10)
@@ -74,9 +68,7 @@
             <div >
                 <div class="EventsList-bottom" v-for="(evento, index) in events">
                     <div>
-                        <RouterLink to = "/viewevent" v-on:click="getEventID(index)">
-                            <img class="EventList-eventimg" v-bind:src=evento.image width="75" height = "75">
-                        </RouterLink>  
+                        <img class="EventList-eventimg" v-bind:src=evento.image width="75" height = "75">
                     </div>
                     <div>
                         <div class="EventsList-bottom-flex">

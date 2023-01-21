@@ -8,6 +8,8 @@ export default {
         },
     
         methods: {
+            // Metode que elimina de la localstorage els elements que hem guardat al iniciar sessió i desconecta al usuari de la applicació (el retorna a la pagina de logIn)
+            // Es crida al picat el boto de "Sign Out"
             signout() {
                 window.localStorage.removeItem("token");
                 window.localStorage.removeItem("loggedIn");
@@ -15,19 +17,23 @@ export default {
                 location.replace("/");
             },
 
+            // Metode que realitza un fetch per rebre les dades del usuari que esta creant l'Event, o sigui nosaltres.
+            // Es crida a aquest metode al entrar a la pagina (created).
             getCreatorUser() {
                 fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid"), {
                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     this.userimage = data[0].image;
                 })
             },
 
+            // Metode que elimina la conta de l'usuari amb el token que tinguem guardat a la localstorage de la API
+            // Es crida al picar el boto de "Delete Account"
             deleteUser () {
                 fetch("http://puigmal.salle.url.edu/api/v2/users" , {
+                    method: "DELETE",
                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                 })
                 .then((res) => res.json())
@@ -36,7 +42,9 @@ export default {
                 })
             },
 
+            // Es crida juntament amb "deleteUser" per elimiar tota la informació del usuari de la localstorage
             removeLogDelete() {
+                window.localStorage.removeItem("token");
                 window.localStorage.removeItem("loggedIn");
                 window.localStorage.removeItem("userid");
             }

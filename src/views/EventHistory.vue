@@ -10,13 +10,15 @@
 
             },
             methods: {
+                // Metode que realitza un fetch que retorna tots els Events en que el usuari hagi asistit i estiguin finalitzats.
+                // Dins del fetch principal en realitzarem un altre per rebre les dades del usuari que hagi creat cada un dels Events que ens retorni el fetch principal.
+                // Es crida a aquest metode al entrar a la pagina (created).
                 eventslist() {
                     fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid") + "/assistances/finished", {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                     })
                     .then((res) => res.json())
                     .then((data) => {
-                            console.log(data)
                             this.events = data;
                             for (let i=0; i<data.length;i++) {
                                 this.getRightDate(i);
@@ -32,6 +34,8 @@
                     })
                 }, 
 
+                // Metode que emagatzema la id del Event i del creador del Event que s'hagi picat a la localstorage
+                // Es crida al picar un dels Events dins del v-for
                 getEventID(index) {
                     let id = this.events[index].id
                     let userid = this.events[index].owner_id
@@ -39,6 +43,7 @@
                     window.localStorage.setItem("currenteventowner", userid);
                 },
 
+                // Metode que canvia el format de la data rebuda per la API
                 getRightDate(i) {
                     this.correctDate[i] = this.events[i].eventStart_date.substring(0, 10)
                 },
