@@ -14,27 +14,29 @@ export default {
         },
     
         methods: {
+            // Metode que realitza un fetch de tipus "Post" per crear una conta a la aplicació. La API s'encarrega de que tota la informació sigui proporcionada
+            // i de que l'email no estigui repetit. Previament, nosaltres controlem que les passwords siguin iguals.
+            // Es crida al picar el boto de "Sign Up"
             signup(name, lastname, email, image, password, passconfirm) {
-                fetch("http://puigmal.salle.url.edu/api/v2/users", {
+                if (password != passconfirm || !password || !passconfirm) {
+                    alert('Missing information, email already exists or passwords are not the same')
+                } else {
+                    fetch("http://puigmal.salle.url.edu/api/v2/users", {
                         method: "POST",
                         headers: {
                         "Content-Type": "application/json",
                         },
                         body: JSON.stringify({ name: this.name, last_name: this.lastname, email: this.email, image: this.image, password: this.password }), 
-                    })
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data.name){
-                        if (password == passconfirm) {
-                            location.replace("/");
-                        }
-                        else {
-                            alert('Passwords must be the same')
-                        }
-                    } else {
-                        alert('Missing information or email already exists')
-                    }
-                });
+                        })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            if (!data.name){
+                                alert('Missing information, email already exists or passwords are not the same')
+                            } 
+                        })
+
+                    location.replace("/"); 
+                }
             }
         }
     }

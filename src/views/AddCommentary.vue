@@ -17,6 +17,8 @@
 
             },
             methods: {
+                // Metode per realitzar el fetch que que retorna les dades d'un unic Event (el que s'ha picat a la pantalla anterior).
+                // Es crida a aquest metode al entrar a la pagina (created).
                 event() {
                     fetch("http://puigmal.salle.url.edu/api/v2/events/" + window.localStorage.getItem("eventid"), {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -31,7 +33,9 @@
                         this.start_date = data[0].eventStart_date
                         this.end_date = data[0].eventEnd_date;
                         this.correctDate = data[0].eventStart_date.substring(0, 10);
-
+                        
+                        // Dins del mateix fetch en fem un altre per a part de rebre les dades del Event, ens retorni tambe les del usuari que l'ha creat,
+                        // ja que necessitem la seva imatge.
                         fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("currenteventowner"), {
                                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                                 })
@@ -43,7 +47,10 @@
                     })
                     
                 },
-
+                
+                // Metode per afegir un comentari al Event (cal esmentar que a aquesta pantalla nomes arribem desde un event al que haguem assistit i ja haigi acabat).
+                // Si no agefeixen comentary o donen una puntuació incorrecta no es realitza el fetch.
+                // Es crida a aquest metode al picar el boto de "Send".
                 fetchcomentary(comentary, puntuation) {
                     if (!this.comentary) { 
                         alert('Fill up the comentary section')

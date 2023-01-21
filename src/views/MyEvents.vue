@@ -13,6 +13,8 @@
 
             },
             methods: {
+                // Metode que realitza un fetch que retorna tots els events que hagi creat l'usuari que li fiquem al path (en aquest cas el nostre usuari) 
+                // Es crida a aquest metode al entrar a la pagina (created).
                 eventslist() {
                     fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid") + "/events/finished", {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}

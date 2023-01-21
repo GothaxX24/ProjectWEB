@@ -18,6 +18,8 @@
 
                 },
                 methods: {
+                    // Metode que realitza un fetch per rebre les dades del usuari que esta creant l'Event, o sigui nosaltres.
+                    // Es crida a aquest metode al entrar a la pagina (created).
                     getCreatorUser() {
                         fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("userid"), {
                             headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -29,6 +31,8 @@
                         })
                     },
 
+                    // Metode que realitza un fetch per enviar les dades del nou Event que estem creant. La propia api ja s'encarrega de que tots els camps estiguin omplerts.
+                    // Es crida a aquest metode al picar el boto de crear event.
                     postEvent(eventname, eventimage, eventlocation, eventdescription, eventparticipants, eventtype, eventstart, eventend) {
                         fetch("http://puigmal.salle.url.edu/api/v2/events", {
                             method: "POST",
@@ -47,11 +51,6 @@
                             }
                         })
                     },
-
-                    /*modificarDate() {
-                        this.eventstart = this.eventstart + ":00.000Z"
-                        this.eventend = this.eventend + ":00.000Z"
-                    }*/
                 },
 
                 created() {

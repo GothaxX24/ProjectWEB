@@ -14,6 +14,8 @@
             },
             methods: {
                 eventslist() {
+                    // Metode que realitza un fetch que retorna tots els Events. Dins d'aquest fetch realitzem un altre per rebre la informacio del creador del cada Event.
+                    // Es crida a aquest metode al entrar a la pagina (created).
                     fetch("http://puigmal.salle.url.edu/api/v2/events", {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                     })
@@ -34,6 +36,8 @@
                     })
                 }, 
 
+                // Metode que emagatzema la id del Event i del creador del Event que s'hagi picat a la localstorage
+                // Es crida al picar un dels Events dins del v-for
                 getEventID(index) {
                     let id = this.events[index].id
                     let userid = this.events[index].owner_id
@@ -41,10 +45,13 @@
                     window.localStorage.setItem("currenteventowner", userid);
                 },
 
+                // Metode que canvia el format de la data rebuda per la API
                 getRightDate(i) {
                     this.correctDate[i] = this.events[i].eventStart_date.substring(0, 10)
                 },
 
+                // Metode que realitza un fetch que retorna tots els events amb el filtre de nom, data i localització indicats. Previament al fetch, s'ha de preparar el path.
+                // Es crida al picar el boto de "Search"
                 eventlistByName(searchlocation, searchdate, searchkeyword) {
                     let path = "?";
                     if (this.searchlocation) {
@@ -57,7 +64,6 @@
                         path = path + "keyword=" + this.searchkeyword + "&";
                     }
                     path.slice(0, -1);
-                    console.log(path);
 
                     fetch("http://puigmal.salle.url.edu/api/v2/events/search" + path, {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -78,6 +84,8 @@
                     })
                 },
 
+                // Metode que realitza un fetch que retorna tots els events ordenats per major rating del usuari que els crea.
+                // Es crida al picar el desplegable de "Sort by" i elegir la opció de "Rating"
                 sortByBest() {
                     fetch("http://puigmal.salle.url.edu/api/v2/events/best", {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -85,7 +93,6 @@
                     .then((res) => res.json())
                     .then((data) => {
                         this.events = data;
-                        console.log(data);
                         for (let i=0; i<data.length;i++) {
                             fetch("http://puigmal.salle.url.edu/api/v2/users/" + this.events[i].owner_id, {
                                 headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -100,8 +107,7 @@
                 }
             },
 
-            created() {
-            
+            created() {  
                 this.eventslist()
             }
         }

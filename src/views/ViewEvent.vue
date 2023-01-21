@@ -15,6 +15,8 @@
 
             },
             methods: {
+                // Metode per realitzar el fetch que que retorna les dades d'un unic Event (el que s'ha picat a la pantalla anterior).
+                // Es crida a aquest metode al entrar a la pagina (created).
                 event() {
                     fetch("http://puigmal.salle.url.edu/api/v2/events/" + window.localStorage.getItem("eventid"), {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -30,6 +32,8 @@
                         this.end_date = data[0].eventEnd_date;
                         this.correctDate = data[0].eventStart_date.substring(0, 10);
 
+                        // Dins del mateix fetch en fem un altre per a part de rebre les dades del Event, ens retorni tambe les del usuari que l'ha creat,
+                        // ja que necessitem la seva imatge.
                         fetch("http://puigmal.salle.url.edu/api/v2/users/" + window.localStorage.getItem("currenteventowner"), {
                                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                                 })
@@ -42,6 +46,8 @@
                     
                 },
 
+                // Metode per realitzar un fetch que permeti al nostre usuari assistir al Event que s'està mostrant (nomes podra assistir a Events que encara no s'hagin realitzat).
+                // Es crida al picar el boto de "Attend"
                 assistevent() {
                     fetch("http://puigmal.salle.url.edu/api/v2/assistances/" + window.localStorage.getItem("userid") + "/" + window.localStorage.getItem("eventid"), {
                         method: "POST",
