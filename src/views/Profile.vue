@@ -21,13 +21,13 @@ export default {
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     this.userimage = data[0].image;
                 })
             },
 
             deleteUser () {
                 fetch("http://puigmal.salle.url.edu/api/v2/users" , {
+                    method: "DELETE",
                     headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
                 })
                 .then((res) => res.json())
@@ -37,6 +37,7 @@ export default {
             },
 
             removeLogDelete() {
+                window.localStorage.removeItem("token");
                 window.localStorage.removeItem("loggedIn");
                 window.localStorage.removeItem("userid");
             }

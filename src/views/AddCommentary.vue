@@ -45,15 +45,25 @@
                 },
 
                 fetchcomentary(comentary, puntuation) {
-                    fetch("http://puigmal.salle.url.edu/api/v2//assistances/" + window.localStorage.getItem("userid")  + "/" + window.localStorage.getItem("eventid"), {
-                        method: "PUT",
-                        headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token"), "Content-Type": "application/json"},
-                        body: JSON.stringify({ puntuation: this.puntuation, comentary: this.comentary }),
-                    })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        
-                    })
+                    if (!this.comentary) { 
+                        alert('Fill up the comentary section')
+                    } else {
+                        if (this.puntuation > 10 || this.putuation < 0 || !this.puntuation) {
+                            alert('Give a right puntuation');
+                        } else {
+                            fetch("http://puigmal.salle.url.edu/api/v2//assistances/" + window.localStorage.getItem("userid")  + "/" + window.localStorage.getItem("eventid"), {
+                                method: "PUT",
+                                headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token"), "Content-Type": "application/json"},
+                                body: JSON.stringify({ puntuation: this.puntuation, comentary: this.comentary }),
+                            })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                
+                            })
+
+                            location.replace("/eventhistory");
+                        }
+                    }
                 }
             
             },
@@ -101,14 +111,10 @@
         </div>
     </div>
     <div class="margintop10">
-                <label class="letranegrita">Puntuation (0 to 10)</label>
-                <input v-model="puntuation" class="CreateEvent-middle-partinput" type="number" placeholder="" name="" required> 
-            </div>
-    <RouterLink to = "/eventhistory">
+        <label class="letranegrita">Puntuation (0 to 10)</label>
+        <input v-model="puntuation" class="CreateEvent-middle-partinput" type="number" placeholder="" name="" required> 
+    </div>
     <button @click="fetchcomentary({comentary, puntuation})" class="viewProfile-bottom-attendbutton"><strong>Send</strong></button>
-    </RouterLink>
-        
-    
 </template>
 
 
