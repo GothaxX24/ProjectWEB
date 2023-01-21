@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <div class="menu">
-        <img class="icono-menu" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/>
+        <img class="icono-menu" src="https://cdn.icon-icons.com/icons2/903/PNG/512/menu_icon-icons.com_69502.png"/>
         <div class="menulinks">
             <RouterLink to="/profile">
                 <img class="iconos-menu" src="https://static.thenounproject.com/png/638636-200.png">
