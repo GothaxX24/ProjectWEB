@@ -8,7 +8,7 @@
 
             },
             methods: {
-                
+                //Mètode per fer el fetch que permet mostrar els amics. 
                 showFriends() {
                     fetch("http://puigmal.salle.url.edu/api/v2/friends/", {
                         method: "GET",
@@ -24,7 +24,7 @@
                         
                     })
                 },
-                
+                //Mètode per fer el fetch que retorna els usuaris que han enviat un missatge.
                 userchats() {
                     fetch("http://puigmal.salle.url.edu/api/v2/messages/users" , {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
@@ -38,17 +38,20 @@
                     })
                     
                 },
+                //Mètode per agafar un usuari.
                 getUser(index) {
                     
                     let id = this.userschats[index].id
                     window.localStorage.setItem("userschats", id);
                 },
+                //Mètode per agafar l'id d'un amic.
                 getFriendID(index) {
                     let id = this.user_friends[index].id;
                     window.localStorage.setItem("userschats", id);
                 }
             },
 
+            //Funció que s'executa quan entrem a aquest vue.
             created() {
                 this.showFriends();
                 this.userchats();
