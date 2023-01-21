@@ -1,3 +1,50 @@
+<script>
+
+    export default {
+        
+        data() {
+            return {
+                name: "",
+                surname: "",
+                image: "",
+                friend_events: [],
+            }
+        },
+        methods: {
+            viewEvent() {
+                
+                fetch("http://puigmal.salle.url.edu/api/v2/users/"+ window.localStorage.getItem("friendid"), {
+                    headers: {
+                        'Authorization': 'Bearer ' + window.localStorage.getItem('token')
+                    }
+                }
+                )
+                .then((res)=> res.json())
+                .then((data) => {
+                    this.name = data[0].name;
+                    this.surname = data[0].last_name;
+                    this.image = data[0].image;
+                })
+            },
+            friendEvents() {
+                fetch("http://puigmal.salle.url.edu/api/v2/users/"+ window.localStorage.getItem("friendid")+ "/assistances", {
+                    headers: {
+                        'Authorization' : 'Bearer ' + window.localStorage.getItem("token")
+                    }
+                })
+                .then((res)=> res.json())
+                .then((data) => {
+                    this.friend_events = data;
+                    console.log(this.friend_events)
+                })
+            }
+        },
+        created() {
+            this.viewEvent();
+            this.friendEvents()
+        }
+    }
+</script>
 <template>
     <head>
         <link rel="stylesheet" href="style.css" />
@@ -6,10 +53,10 @@
         <RouterLink to = "/friends">
             <img class="back" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png">
         </RouterLink>
-        <img class="profile-pic" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/> 
+        <img class="profile-pic" :src="this.image"/> 
     </div>
 
-    <h2>User 1</h2>
+    <h2>{{this.name}} {{this.surname}}</h2>
 
     <div class="separacioImatges"> 
         <RouterLink to = "/friends">
@@ -29,10 +76,9 @@
         Recent events
     </h3>
 
-    <div id="recent-events">
-        <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
-        <img class="imgevent" src="https://isoges14.isonor.es/website_event/static/src/img/event_past_0.jpg">
+    <div id="recent-events" v-if="friend_events.length > 0">
+        <img v-for="(event,index) in friend_events" class="imgevent" :src="event.image">
+        
     </div>
+    <div v-else> NO EVENTS</div>
 </template>

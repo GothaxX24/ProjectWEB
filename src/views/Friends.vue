@@ -8,22 +8,37 @@
             }
         },
         methods: {
+            searchuser(request_name) {
+                fetch ('http://puigmal.salle.url.edu/api/v2/users/search?s=' + this.request_name ,{
+                    headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    console.log(data[0].name + " - " + this.request_name);
+                    if (data[0].name === this.request_name || data[0].email === this.request_name) {
+                        window.localStorage.setItem("userid" ,data[0].id);
+                        this.sendFriendRequest();
+
+                    } else {
+                        alert("No person with that name or email");
+                    }
+                    
+                })
+            },
             sendFriendRequest() {
                 fetch("http://puigmal.salle.url.edu/api/v2/friends/"+ window.localStorage.getItem("userid"), {
                     method: "POST",
                     headers: {
-                        'Authorization' : window.localStorage.getItem("token")
+                        'Authorization' : 'Bearer ' + window.localStorage.getItem("token")
                     
                     }
                 }
                 )
                 .then((res)=>res.json())
                 .then((data) => {
-                    if (data.affectedRows = 0) {
-                        alert("Error: No person with that name");
-                    } else {
-                        alert("Request sent succesfully!");
-                    }
+                    alert("Request sent succesfully!");
+                    
                 })
 
             },
@@ -31,7 +46,7 @@
                 fetch("http://puigmal.salle.url.edu/api/v2/friends/", {
                     method: "GET",
                     headers: {
-                        'Authorization' : window.localStorage.getItem("token")
+                        'Authorization' : 'Bearer ' + window.localStorage.getItem("token")
                     
                     }
                 }
@@ -43,54 +58,71 @@
             },
             pendingRequest() {
                 fetch("http://puigmal.salle.url.edu/api/v2/friends/requests", {
-                    method: "GET",
+                    method: 'GET',
                     headers: {
-                        'Autorization' : "Bearer" + window.localStorage.getItem("token")
+                        'Authorization' : 'Bearer ' + window.localStorage.getItem("token")
                     }
                 }
+                )
                 .then((res)=>res.json())
-                .then((data)=> {
+                .then((data) => {
+                    
                     this.requested_users = data;
                 })
-                )
+
+                
             },
             addFriend(id) {
-                fetch("http://puigmal.salle.url.edu/api/v2/friends/" + id, {
+                fetch("http://puigmal.salle.url.edu/api/v2/friends/" + window.localStorage.getItem("requestedid"), {
                     method: "PUT",
                     headers: {
-                        'Autorization' : "Bearer" + window.localStorage.getItem("token")
+                        'Authorization' : "Bearer " + window.localStorage.getItem("token")
                     }
                 }
-                .then()
-                .then()
                 )
+                .then((res)=>res.json())
+                .then((data) => {
+                    alert("Friend request accepted succesfully");
+                })
             },
             deleteFriend(id) {
-                fetch("http://puigmal.salle.url.edu/api/v2/friends/" + id, {
+                fetch("http://puigmal.salle.url.edu/api/v2/friends/" + window.localStorage.getItem("requestedid"), {
                     method: "DELETE",
                     headers: {
-                        'Autorization' : "Bearer" + window.localStorage.getItem("token")
+                        'Authorization' : "Bearer " + window.localStorage.getItem("token")
                     }
                 }
-                .then()
-                .then()
                 )
+                .then((res)=>res.json())
+                .then((data) => {
+                    alert("Friend Request rejected succesfully");
+                })
+                
             },
             getFriendID(index) {
-                let id = this.friend[index].id;
+                let id = this.user_friends[index].id;
                 window.localStorage.setItem("friendid", id);
             },
-            getRequestedID(index) {
+            acceptRequest(index) {
                 let id = this.requested_users[index].id
                 window.localStorage.setItem("requestedid",id);
-            }
-            ,
-            created() {
-                this.showFriends()
-            }
+                this.addFriend();
+            },            
+            rejectRequest(index) {
+                let id = this.requested_users[index].id
+                window.localStorage.setItem("requestedid",id);
+                this.deleteFriend();
+            },
+                      
 
 
-        }
+        },
+        created() {
+                
+                
+                this.showFriends();
+                this.pendingRequest();
+            }
     }
 </script>
 
@@ -99,7 +131,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <div class="menu">
-        <img class="icono-menu" src="https://cdn.pixabay.com/photo/2021/05/04/13/29/portrait-6228705_960_720.jpg"/>
+        <img class="icono-menu" src=/>
         <div class="menulinks">
             <RouterLink to="/profile">
                 <img class="iconos-menu" src="https://static.thenounproject.com/png/638636-200.png">
@@ -131,14 +163,16 @@
                     <div class = users>
                     <label><strong>Your friends: </strong></label>         
                     </div>
-                  
-                    <div class = usersout v-for="(friend,index) in user_friends" >
-                        <RouterLink class to = '/inChat' v-on:click="addFriend(this.user_friends[index].id)">
-                            <img class="circular-image" src={{friend.image}} width="30" height="30"/>
-                            <p><strong>{{friend.name}} {{friend.lastname}}</strong></p>
-                        </RouterLink>
-                    </div>
-
+                    
+                        <div class = users2 v-for="(friend,index) in user_friends" >
+                            <RouterLink class = users2 to = "/viewprofile"  v-on:click="getFriendID(index)">
+                                <img class="circular-image" :src="friend.image"  width="30" height="30"/>
+                                <p><strong>{{friend.name}}  {{friend.last_name}}</strong></p>
+                            </RouterLink>
+                            
+                            
+                        </div>
+                    
                     <br>
 
                     <div class = users>
@@ -146,16 +180,20 @@
                     </div>
 
                     <div class = requested v-for ="(request,index) in requested_users">
-                        <div class= friends>
-                            <img class = "circular-image" src={{request.img}} width="30" height="30" alt="">
-                            <strong>{{request.name}} {{request.last_name}}</strong>
-                        </div>
+                        <RouterLink to="/ViewProfile">
+                            <div class= friends>
+                                <img class = "circular-image" :src = "request.img" width="30" height="30" alt="">
+                                <strong>{{request.name}} {{request.last_name}}</strong>
+                            </div>
+                        </RouterLink>
+                            
+
                         <div class="outterbutton">
                             <div class="buttonss">
-                                <button class="buttonss" v-on:click="getRequestedID(index)">Accept</button>
+                                <button class="buttonss" v-on:click="acceptRequest(index)">Accept</button>
                             </div>
                             <div class="buttonss">
-                                <button class="buttonss" v-on:click="deleteFriend(index)">Deny</button>
+                                <button class="buttonss" v-on:click="rejectRequest(index)">Deny</button>
                             </div>
 
                         </div>
@@ -174,13 +212,18 @@
                         </div>
                         
                         <div class = body_friends8>
-                            <input v-model="request_name" type="text" placeholder="Enter Username or email" name="username or email" required>     
+                            <input v-model=request_name type="text" placeholder="Enter Username or email" name="username or email" required>     
                         </div>
                     </div>
                     <br>
                     
                     <div class = send_req>
-                        <button v-on:click="sendFriendRequest()" class = send_button type = "submit"><strong>Send request</strong></button>
+                        <button v-on:click="searchuser(request_name)" class = send_button type = "submit"><strong>Send request</strong></button>
+                    </div>
+                    
+                    <div class = send_req>
+
+                            <button @click="$router.push('/Chats')" class = send_button type = "submit"><strong>Go to Chats!</strong></button>
                     </div>
                     
             </div>      
@@ -188,6 +231,17 @@
             
     </template>
     <style>
+    .users2{
+        display:flex;
+        align-items: center;
+        justify-content: space-around;
+        border:1px solid black;
+        font-size: "5";
+        background-color: turquoise;
+        font-family : Arial, Helvetica, sans-serif;
+        max-width: 100%;
+        width: 600px;
+    }
     .outterbutton{
         display: flex;
     }

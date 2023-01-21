@@ -101,6 +101,7 @@
             },
 
             created() {
+            
                 this.eventslist()
             }
         }
