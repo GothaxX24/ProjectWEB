@@ -8,6 +8,7 @@
 
             },
             methods: {
+                
                 showFriends() {
                     fetch("http://puigmal.salle.url.edu/api/v2/friends/", {
                         method: "GET",
@@ -20,9 +21,10 @@
                     .then((res)=>res.json())
                     .then((data) => {
                         this.user_friends = data;
-                        console.log(this.user_friends)
+                        
                     })
                 },
+                
                 userchats() {
                     fetch("http://puigmal.salle.url.edu/api/v2/messages/users" , {
                         headers: {'Authorization': 'Bearer ' + window.localStorage.getItem("token")}
