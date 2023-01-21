@@ -1,67 +1,110 @@
+<script>
+    export default{
+        data() {
+            return {
+                messages: [],
+                idfriend: window.localStorage.getItem("userschats"),
+                content: "",
+                name: "",
+                surname: "",
+                image: ""
+            }
+        },
+        methods: {
+            //Mètode per fer el fetch que carrega les dades de l'usuari amb el que s'està parlant.
+            loadinfo() {
+                
+                fetch("http://puigmal.salle.url.edu/api/v2/users/"+ window.localStorage.getItem("userschats"), {
+                    headers: {
+                        'Authorization': 'Bearer ' + window.localStorage.getItem('token')
+                    }
+                }
+                )
+                .then((res)=> res.json())
+                .then((data) => {
+                    this.name = data[0].name;
+                    this.surname = data[0].last_name;
+                    this.image = data[0].image;
+                })
+            },
+            //Mètode per realitzar el fetch que permet enviar missatges al chat.
+            sendmsg() {
+                fetch("http://puigmal.salle.url.edu/api/v2/messages", {
+                    method: "POST",
+                    headers: {
+                        'Authorization' : 'Bearer ' + window.localStorage.getItem("token"),
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({content: this.content, user_id_send: window.localStorage.getItem("userid") , user_id_recived: window.localStorage.getItem("userschats") }),
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                        
+                    console.log(data)
+                   
+                    
+                })
+            },
+
+            //Mètode per realitzar el fetch que retorna els missatges del chat.
+            loadmessages() {
+
+                fetch("http://puigmal.salle.url.edu/api/v2/messages/"+ window.localStorage.getItem("userschats"), {
+                    method: "GET",
+                    headers: {
+                        'Authorization' : "Bearer " + window.localStorage.getItem("token")
+                    }
+                })
+                .then((res)=>res.json())
+                .then((data) => {
+                    console.log(window.localStorage.getItem("userschats") + "    " + window.localStorage.getItem("userid"))
+                    console.log(data)
+                    this.messages = data;
+                })
+            }
+        },
+        //Funció que s'executa quan s'entra en aquest
+        created() {
+            this.loadmessages();   
+            this.loadinfo(); 
+        }
+    }
+
+
+</script>
+
 <template>
-    <div>
+     
+    <div class = "inChat-all">
         
-    </div>  
-        <div class = "inChat-all">
+        <div class="inChat-header">
+            <RouterLink to = "/friends">
+                <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
+                <label style="color: white; margin-left: 10px;"><strong>{{this.name}} {{ this.surname }}</strong></label>         
+            </RouterLink>    
+        </div>
+        
+        
+        <div class = inChat-general>
             
-            <div class="inChat-header">
-                <RouterLink to = "/friends">
-                    <img class="circular-image" src="https://2.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=180" width="30" height="30"/>
-                    <label style="color: white; margin-left: 10px;"><strong>User 1</strong></label>         
-                </RouterLink>    
-            </div>
-            
-            
-            <div class = inChat-general>
-            
-                <div class="inChat-top">
-                    <div class = inChat-send>
-                        <label class="try"><strong>Hey!</strong></label>
-                    </div>
-
-                    <div class="prova1">
+            <div class="inChat-top">
+                <div v-for="(msg) in messages">
+                    <div class="prova1" v-if="msg.user_id_send != idfriend ">
                         <div class = inChat-send>
-                            <label><strong>Hi! How are you?</strong></label>
+                            <label><strong>{{msg.content}}</strong></label>
                         </div>
                     </div>
-
-                    <div class = inChat-response>
-                        <label><strong>Great! I went to the event you recommended.</strong></label>
-                    </div> 
-
-                    <div class="prova1">
-                        <div class = inChat-send>
-                            <label><strong>Really? And how was it? I wished it soooo hard but i couldn't assist... </strong></label>
-                        </div>
+                    
+                    <div class = inChat-send v-else>
+                        <label class="try"><strong>{{ msg.content }}</strong></label>
                     </div>
 
-                    <div class = inChat-response>
-                        <label class="try"><strong>It was AWESOME! Next time I'll go with u... I promise.</strong></label>
-                    </div>
+                   
+                </div>
+                
 
-                    <div class="prova1">
-                        <div class = inChat-send>
-                            <label><strong>...</strong></label>
-                        </div>
-                    </div>
-
-                    <div class = inChat-response>
-                        <label class="try"><strong>?</strong></label>
-                    </div>
-                    <div class = inChat-response>
-                        <label class="try"><strong>What?</strong></label>
-                    </div>
-                    <div class="prova1">
-                        <div class = inChat-send>
-                            <label><strong>Nothing</strong></label>
-                        </div>
-                    </div>
-                    <div class="prova1">
-                        <div class = inChat-send>
-                            <ion-icon id="heart-icon" name="heart"></ion-icon>
-                            <ion-icon id="thumbs-up-icon" name="thumbs-up"></ion-icon>
-                        </div>
-                    </div>
+                
+                
 
 
 
@@ -69,12 +112,12 @@
 
         </div>
         <div class="inChat-bottom">
-                <ion-icon id = "smile-icon" name="happy-outline"></ion-icon>
-                <input class="inChat-bar" type="text" placeholder="Write your message here" name="confirm password" > 
-                <ion-icon id="send-icon" name = "send"></ion-icon>
+            <ion-icon id = "smile-icon" name="happy-outline"></ion-icon>
+            <input class="inChat-bar" v-model="this.content" type="text" placeholder="Write your message here" name="confirm password" > 
+            <ion-icon v-on:click.prevent="sendmsg()" id="send-icon" name = "send"></ion-icon>
         </div>
     </div>   
-        
+
 
 </template>
 

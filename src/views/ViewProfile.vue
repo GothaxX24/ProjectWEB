@@ -11,6 +11,7 @@
             }
         },
         methods: {
+            //Mètode per fer el fetch que ens permet agafar la informació d'un usuari.
             viewEvent() {
                 
                 fetch("http://puigmal.salle.url.edu/api/v2/users/"+ window.localStorage.getItem("friendid"), {
@@ -26,6 +27,7 @@
                     this.image = data[0].image;
                 })
             },
+            //Mètode per fer el fetch que retorna els esdeveniments als quals un usuari ha participat o participarà.
             friendEvents() {
                 fetch("http://puigmal.salle.url.edu/api/v2/users/"+ window.localStorage.getItem("friendid")+ "/assistances", {
                     headers: {
@@ -35,10 +37,11 @@
                 .then((res)=> res.json())
                 .then((data) => {
                     this.friend_events = data;
-                    console.log(this.friend_events)
+                    console.log(data)
                 })
             }
         },
+        //Funció que s'executa quan s'obre aquest vue.
         created() {
             this.viewEvent();
             this.friendEvents()
@@ -58,27 +61,58 @@
 
     <h2>{{this.name}} {{this.surname}}</h2>
 
-    <div class="separacioImatges"> 
-        <RouterLink to = "/friends">
-            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/880/880594.png">
-        </RouterLink>
-
-        <RouterLink to="/statistics">
-            <img class="pequeña" src="https://cdn0.iconfinder.com/data/icons/glyphpack/63/statistics-512.png">
-        </RouterLink>
-
-        <RouterLink to="/eventhistory">
-            <img class="pequeña" src="https://cdn-icons-png.flaticon.com/512/32/32223.png">
-        </RouterLink> 
-    </div>
+    
 
     <h3>
         Recent events
     </h3>
 
-    <div id="recent-events" v-if="friend_events.length > 0">
-        <img v-for="(event,index) in friend_events" class="imgevent" :src="event.image">
-        
+ 
+
+    <div class="alls">
+        <div v-if="friend_events.length > 0">
+            <div class="EventsList-bottom" v-for="(evento, index) in friend_events">
+                <div>
+                    <img class="EventList-eventimg" v-bind:src=evento.image width="75" height = "75">
+                </div>
+                <div>
+                    <div class="EventsList-bottom-flex">
+                        <label class="EventsList-bottom-eventname">{{evento.name}}</label>
+                        <img v-bind:src=evento.image width="45" height="45"/>
+                        <div class="EventList-bottom-flex2">
+                            <form>
+                                <div class="clasificacion">
+                                    <input id="radio1" type="radio" name="estrellas" value="5">
+                                    <label for="radio1">★</label>
+                                    <input id="radio2" type="radio" name="estrellas" value="4">
+                                    <label for="radio2">★</label>
+                                    <input id="radio3" type="radio" name="estrellas" value="3">
+                                    <label for="radio3">★</label>
+                                    <input id="radio4" type="radio" name="estrellas" value="2">
+                                    <label for="radio4">★</label>
+                                    <input id="radio5" type="radio" name="estrellas" value="1">
+                                    <label for="radio5">★</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div >
+                        <label class="EventList-bottom-date">{{evento.date}}</label>
+                        <label class="EventList-bottom-street">{{evento.location}}</label>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <div v-else> NO EVENTS</div>
+    
 </template>
+
+<style>
+.alls{
+    display:flex;
+    justify-content: center;
+}
+
+
+</style>
