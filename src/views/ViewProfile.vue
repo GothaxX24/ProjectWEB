@@ -37,7 +37,6 @@
                 .then((res)=> res.json())
                 .then((data) => {
                     this.friend_events = data;
-                    console.log(data)
                 })
             }
         },

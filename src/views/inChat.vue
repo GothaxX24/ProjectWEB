@@ -39,10 +39,7 @@
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                        
-                    console.log(data)
-                   
-                    
+
                 })
             },
 
@@ -57,8 +54,6 @@
                 })
                 .then((res)=>res.json())
                 .then((data) => {
-                    console.log(window.localStorage.getItem("userschats") + "    " + window.localStorage.getItem("userid"))
-                    console.log(data)
                     this.messages = data;
                 })
             }
